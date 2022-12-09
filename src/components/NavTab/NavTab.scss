@@ -1,0 +1,20 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.navtab {
+  margin: 0;
+  padding: 0;
+  background-color: $content-bg-color_light;
+  display: flex;
+  width: 100%;
+  height: 66px;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.navtab__link {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.23;
+  text-decoration-line: underline;
+}

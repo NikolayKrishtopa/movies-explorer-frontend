@@ -1,0 +1,22 @@
+%section-padding {
+  margin: 0;
+  padding: 0 70px;
+  @media (max-width: 800px) {
+    padding: 0 50px;
+  }
+  @media (max-width: 500px) {
+    padding: 0 18px;
+  }
+}
+
+%section-title-text {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 1.16;
+}
+
+$content-bg-color_light: #272727;
+
+$content-bg-color_dark: #202020;
