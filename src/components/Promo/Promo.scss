@@ -15,7 +15,7 @@
 }
 
 .promo__title {
-  @extend %section-title-text;
+  @extend %section-title;
   max-width: 730px;
   text-align: center;
 }
