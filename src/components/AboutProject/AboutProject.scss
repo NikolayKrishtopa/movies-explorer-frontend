@@ -4,9 +4,7 @@
   background-color: $content-bg-color_dark;
 }
 .about-project__heading {
-  @extend %section-subtitle;
-  padding: 0 0 23px;
-  border-bottom: 1px solid #dadada;
+  @extend %section-title;
 }
 .about-project__facts {
   margin: 0;
@@ -32,6 +30,7 @@
 }
 .about-project__fact-paragraph {
   @extend %content-text;
+  line-height: 1.43;
 }
 .about-project__time-line {
   margin: 0;
@@ -44,13 +43,15 @@
 }
 .about-project__time-line-term {
   @extend %content-text;
+  line-height: 1.21;
   padding: 9px 0;
   display: flex;
   justify-content: center;
   background: #303030;
 }
 .about-project__time-line-term_style_green {
-  background-color: #3ddc84;
+  background-color: $green-solid;
+  line-height: 1.21;
   color: #000;
 }
 .about-project__time-line-term-annotation {

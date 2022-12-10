@@ -1,0 +1,42 @@
+@import "../../commonStylles/commonStyles.scss";
+.techs {
+  @extend %section;
+  background-color: $content-bg-color_light;
+  align-items: center;
+}
+.techs__heading {
+  @extend %section-title;
+}
+.techs__text-accent {
+  margin-top: 90px;
+  @extend %section-text-accent;
+  text-align: center;
+}
+.techs__text {
+  @extend %content-text;
+  margin: 26px 0 100px;
+  line-height: 1.43;
+  text-align: center;
+  max-width: 460px;
+}
+.techs__techs-tiles {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.techs__tech-tile {
+  @extend %content-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.21;
+  margin: 0;
+  padding: 0;
+  background-color: $section-tile-bkg;
+  width: 90px;
+  height: 60px;
+  border-radius: 10px;
+}

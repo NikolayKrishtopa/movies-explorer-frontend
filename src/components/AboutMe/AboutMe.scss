@@ -1,0 +1,61 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.about-me {
+  @extend %section;
+  background-color: $content-bg-color_dark;
+}
+.about-me__heading {
+  @extend %section-title;
+}
+.about-me__container {
+  margin: 0;
+  padding: 66px 0 0 0;
+  display: grid;
+  grid-template-columns: 1fr fit-content(400px);
+  gap: 49px;
+  grid-auto-flow: dense;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
+}
+.about-me__info {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  grid-column: 1;
+}
+.about-me__name {
+  @extend %section-text-accent;
+}
+.about-me__brief {
+  margin: 0;
+  padding: 18px 0 26px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.11;
+  letter-spacing: 0px;
+}
+.about-me__description {
+  @extend %content-text;
+  line-height: 1.57;
+  margin-bottom: 99px;
+  max-width: 600px;
+}
+.about-me___link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+}
+.about-me__photo {
+  border-radius: 10px;
+  grid-column: 2;
+  @media (max-width: 800px) {
+    width: 255px;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+    grid-column: unset;
+  }
+}
