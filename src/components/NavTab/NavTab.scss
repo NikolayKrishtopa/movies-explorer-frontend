@@ -10,11 +10,17 @@
   align-items: center;
   justify-content: center;
   gap: 40px;
+  @media (max-width: 500px) {
+    gap: 24px;
+  }
 }
 
 .navtab__link {
   font-size: 13px;
   font-weight: 500;
-  line-height: 1.23;
+  line-height: 16px;
   text-decoration-line: underline;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
