@@ -1,4 +1,5 @@
 import userPhoto from "../../images/photo.png";
+import Portfolio from "../Portfolio/Portfolio";
 
 export default function AboutMe() {
   return (
@@ -28,6 +29,7 @@ export default function AboutMe() {
           </a>
         </div>
       </div>
+      <Portfolio />
     </section>
   );
 }

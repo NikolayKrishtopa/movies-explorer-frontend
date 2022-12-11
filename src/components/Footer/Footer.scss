@@ -1,0 +1,45 @@
+@import "../../commonStylles/commonStyles.scss";
+
+%text-style {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 1.21;
+}
+.footer {
+  @extend %section;
+  background-color: $content-bg-color_dark;
+  padding-top: 79px;
+  padding-bottom: 0;
+}
+.footer__heading {
+  @extend %text-style;
+  margin: 0;
+  padding: 0 0 20px 0;
+  text-align: center;
+  border-bottom: 1px solid #424242;
+  color: #8b8b8b;
+}
+.footer__links {
+  display: flex;
+  gap: 20px;
+}
+.footer__year {
+  @extend %text-style;
+  margin: 0;
+  padding: 0;
+}
+.footer__bottom {
+  margin: 0;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__link {
+  @extend %text-style;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+}
