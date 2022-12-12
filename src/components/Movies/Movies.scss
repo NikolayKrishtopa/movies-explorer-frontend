@@ -1,0 +1,6 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.movies {
+  @extend %section;
+  background-color: $content-bg-color_dark;
+}

@@ -1,0 +1,75 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.header {
+  @extend %section;
+  margin-bottom: -59px;
+  flex-direction: row;
+  background-color: transparent;
+  padding-top: 21px;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 44px;
+}
+
+.header__logo {
+}
+.header__nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__buttons {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__buttons_left {
+  gap: 16px;
+}
+.header__buttons_right {
+  gap: 30px;
+  @media (max-width: 500px) {
+    gap: 14px;
+  }
+}
+.header__button_hidden {
+  display: none;
+}
+.header__buttton {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  color: #fff;
+}
+.header__buttton_text_small {
+  font-size: 12px;
+  line-height: 16px;
+}
+.header__buttton_style_green {
+  padding: 8px 20px;
+  background-color: $green-solid;
+  border-radius: 3px;
+}
+
+.header__profile-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.header__profile-icon {
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #313131;
+}

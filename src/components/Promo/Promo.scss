@@ -1,13 +1,13 @@
 @import "../../commonStylles/commonStyles.scss";
 
 .promo {
-  margin: 0;
-  padding: 0;
+  @extend %section;
+  padding-top: 0;
+  padding-bottom: 0;
   background-color: #073042;
   background-image: url(../../images/landing-logo.png);
   background-position: center;
   background-repeat: no-repeat;
-  width: 100%;
   min-height: 598px;
   display: flex;
   justify-content: center;
