@@ -6,9 +6,9 @@ export default function Header(props) {
   const { isLogged } = props;
   return (
     <header className="header">
-      <a href="#about-project">
+      <Link to="/">
         <img src={logo} alt="Логотип сайта." className="header__logo" />
-      </a>
+      </Link>
       <div className="header__nav">
         <div className="header__buttons header__buttons_left">
           <Link

@@ -28,6 +28,8 @@
   font-size: 13px;
   line-height: 17px;
   box-sizing: border-box;
+  color: #fff;
+  outline: none;
 }
 .search-form__submit-button {
   margin: 0;
@@ -38,18 +40,4 @@
   border-radius: 17px;
   background-color: $blue-solid;
   border: none;
-}
-.search-form__checkbox-container {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-}
-.search-form__checkbox-label {
-  @extend %content-text;
-  line-height: 18px;
-}
-.search-form__checkbox {
-  width: 36px;
-  height: 20px;
 }

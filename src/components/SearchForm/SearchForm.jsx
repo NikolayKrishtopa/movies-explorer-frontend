@@ -1,6 +1,10 @@
+import { useState } from "react";
 import searchButtonIcon from "../../images/search-button-icon.png";
+import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 export default function SearchForm() {
+  const [isShortMeterChecked, setIsShortMeterChecked] = useState(false);
+
   return (
     <form className="search-form">
       <div className="search-form__field-container">
@@ -9,12 +13,10 @@ export default function SearchForm() {
           <img src={searchButtonIcon} alt="кнопка поиска." />
         </button>
       </div>
-      <div className="search-form__checkbox-container">
-        <input type="checkbox" className="search-form__checkbox" id="short" />
-        <label htmlFor="short" className="search-form__checkbox-label">
-          Короткометражки
-        </label>
-      </div>
+      <FilterCheckbox
+        isChecked={isShortMeterChecked}
+        onCheck={setIsShortMeterChecked}
+      />
     </form>
   );
 }

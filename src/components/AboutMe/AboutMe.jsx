@@ -24,6 +24,7 @@ export default function AboutMe() {
           <a
             href="https://github.com/NikolayKrishtopa"
             className="about-me___link"
+            target="_blank"
           >
             Github
           </a>

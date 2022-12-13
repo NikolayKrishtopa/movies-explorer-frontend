@@ -1,0 +1,56 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.filter-checkbox {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.filter-checkbox__checkbox-label {
+  @extend %content-text;
+  line-height: 18px;
+  pointer-events: none;
+}
+.filter-checkbox__checkbox {
+  width: 34px;
+  height: 14px;
+  position: relative;
+  opacity: 0;
+  background-color: $green-solid;
+  border-radius: 7px;
+  z-index: 1;
+  cursor: pointer;
+}
+.filter-checkbox__checkbox-container {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 34px;
+  height: 14px;
+}
+.filter-checkbox__checkbox-pseudo {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 2px;
+  background-color: #2f2f2f;
+  border-radius: 7px;
+  display: flex;
+  justify-content: flex-start;
+}
+.filter-checkbox__checkbox-pseudo_checked {
+  background-color: $green-solid;
+  justify-content: flex-end;
+}
+.filter-checkbox__checkbox-pseudo-mark {
+  margin: 0;
+  padding: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+}
