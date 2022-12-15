@@ -1,4 +1,4 @@
-import icon from "../../images/link-icon.png";
+import icon from "../../images/link-icon.svg";
 
 export default function Portfolio() {
   return (

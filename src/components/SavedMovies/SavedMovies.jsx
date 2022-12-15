@@ -2,12 +2,14 @@ import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
 import cardsTemplate from "../../utils/DEV_ONLY_REMOVE";
 
-export default function Movies() {
+export default function SavedMovies() {
   return (
-    <section className="movies">
+    <section className="saved-movies">
       <SearchForm />
-      <MoviesCardList cards={cardsTemplate} />
-      <button className="movies__extend-button">Ещё</button>
+      <MoviesCardList
+        cards={cardsTemplate.filter((e) => e.isAdded)}
+        mode="collection"
+      />
     </section>
   );
 }

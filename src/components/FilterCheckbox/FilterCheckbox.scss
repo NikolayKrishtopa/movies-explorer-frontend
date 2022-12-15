@@ -9,8 +9,12 @@
 }
 .filter-checkbox__checkbox-label {
   @extend %content-text;
+  font-size: 14px;
   line-height: 18px;
   pointer-events: none;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 .filter-checkbox__checkbox {
   width: 34px;

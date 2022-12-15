@@ -1,3 +1,5 @@
+@import "../../commonStylles/commonStyles.scss";
+
 .root {
   margin: 0;
   padding: 0;
@@ -8,6 +10,10 @@
   margin: 0 auto;
   padding: 0;
   max-width: 1280px;
+  position: relative;
   font-family: Inter, Arial, sans-serif;
   color: #fff;
+  position: relative;
+  min-height: 100vh;
+  background-color: $content-bg-color_dark;
 }

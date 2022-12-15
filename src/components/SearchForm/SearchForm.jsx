@@ -1,5 +1,5 @@
 import { useState } from "react";
-import searchButtonIcon from "../../images/search-button-icon.png";
+import searchButtonIcon from "../../images/search-button-icon.svg";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 export default function SearchForm() {

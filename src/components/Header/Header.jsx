@@ -1,5 +1,5 @@
 import logo from "../../images/logo.png";
-import profileIcon from "../../images/profile-icon.png";
+import profileIcon from "../../images/profile-icon.svg";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {

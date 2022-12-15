@@ -3,6 +3,11 @@
   padding: 110px 70px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
   @media (max-width: 800px) {
     padding: 90px 50px;
   }
@@ -10,7 +15,26 @@
     padding: 70px 18px;
   }
 }
+%section-modal {
+  @extend %section;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
+%modal-title_text {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: center;
+}
 %section-text-accent {
   margin: 0;
   padding: 0;
@@ -56,3 +80,5 @@ $section-tile-bkg: #303030;
 $green-solid: #3ddc84;
 
 $blue-solid: #4285f4;
+
+$text-input-bkg: #2f2f2f;

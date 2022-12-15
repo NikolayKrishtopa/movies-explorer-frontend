@@ -3,7 +3,7 @@ import Portfolio from "../Portfolio/Portfolio";
 
 export default function AboutMe() {
   return (
-    <section className="about-me">
+    <section className="about-me" id="about-me">
       <h2 className="about-me__heading">Студент</h2>
       <div className="about-me__container">
         <img

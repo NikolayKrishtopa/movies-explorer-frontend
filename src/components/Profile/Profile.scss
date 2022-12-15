@@ -1,0 +1,67 @@
+@import "../../commonStylles/commonStyles.scss";
+.profile {
+  @extend %section-modal;
+}
+.profile__container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $content-bg-color_dark;
+}
+.profile__heading {
+  @extend %modal-title_text;
+}
+.profile__info {
+  margin: 0;
+  padding: 106px 0 203px;
+  gap: 0;
+}
+.profile__info-item {
+  margin: 0;
+  padding: 17px 0;
+  border-bottom: 1px solid #424242;
+  display: flex;
+  justify-content: space-between;
+  min-width: 410px;
+  &:last-child {
+    border: none;
+  }
+}
+.profile__info-item-text {
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 13px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+.profile__info-item-text_right {
+  text-align: right;
+}
+.profile__nav {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.profile__nav-button {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0px;
+  text-align: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.profile__nav-button_type_edit {
+  color: #fff;
+}
+.profile__nav-button_type_quit {
+  color: #ee3465;
+}
