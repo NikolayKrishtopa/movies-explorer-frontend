@@ -2,7 +2,7 @@
 
 .promo {
   @extend %section;
-  padding-top: 0;
+  padding-top: 30px;
   padding-bottom: 0;
   background-color: #073042;
   background-image: url(../../images/landing-logo.png);
@@ -13,7 +13,10 @@
   justify-content: center;
   align-items: center;
   @media (max-width: 500px) {
-    min-height: 570px;
+    padding-top: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 655px;
     background-size: 248px;
   }
 }
@@ -23,8 +26,8 @@
   max-width: 730px;
   text-align: center;
   @media (max-width: 500px) {
+    // margin-top: 80px;
     font-size: 31px;
     line-height: 39px;
-    letter-spacing: -0.04em;
   }
 }

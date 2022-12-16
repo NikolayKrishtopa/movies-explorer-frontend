@@ -20,6 +20,7 @@
     padding-right: 30px;
   }
   @media (max-width: 500px) {
+    padding-top: 65px;
     padding-left: 10px;
     padding-right: 10px;
   }
@@ -56,6 +57,7 @@
   @media (max-width: 500px) {
     flex-direction: column-reverse;
     gap: 30px;
+    padding-top: 30px;
   }
 }
 .footer__link {

@@ -3,6 +3,10 @@
 .about-me {
   @extend %section;
   background-color: $content-bg-color_dark;
+  @media (max-width: 500px) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
 }
 .about-me__heading {
   @extend %section-title;
@@ -17,6 +21,7 @@
   grid-auto-flow: dense;
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 .about-me__info {
@@ -34,24 +39,36 @@
   padding: 18px 0 26px;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.11;
+  line-height: 20px;
   letter-spacing: 0px;
+  @media (max-width: 600px) {
+    font-size: 11px;
+  }
 }
 .about-me__description {
   @extend %content-text;
-  line-height: 1.57;
+  line-height: 22px;
   margin-bottom: 99px;
-  max-width: 600px;
+  max-width: 620px;
+  @media (max-width: 600px) {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 40px;
+  }
 }
 .about-me___link {
   margin: 0;
   padding: 0;
   text-decoration: none;
   color: #fff;
+  font-size: 14px;
+  line-height: 17px;
 }
 .about-me__photo {
   border-radius: 10px;
   grid-column: 2;
+  width: 270px;
+  height: 327px;
   @media (max-width: 800px) {
     width: 255px;
   }

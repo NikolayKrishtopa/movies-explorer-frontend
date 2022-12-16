@@ -3,14 +3,19 @@
   @extend %section;
   background-color: $content-bg-color_light;
   align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 .techs__heading {
   @extend %section-title;
 }
 .techs__text-accent {
-  margin-top: 90px;
   @extend %section-text-accent;
+  margin-top: 90px;
   text-align: center;
+  @media (max-width: 500px) {
+    margin-top: 62px;
+  }
 }
 .techs__text {
   @extend %content-text;
@@ -18,15 +23,25 @@
   line-height: 1.43;
   text-align: center;
   max-width: 460px;
+  letter-spacing: -0.04em;
+  @media (max-width: 500px) {
+    font-size: 11px;
+    margin: 24px 0 50px;
+  }
 }
 .techs__techs-tiles {
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
   gap: 10px;
+  @media (max-width: 750px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 .techs__tech-tile {
   @extend %content-text;
@@ -40,4 +55,8 @@
   width: 90px;
   height: 60px;
   border-radius: 10px;
+  @media (max-width: 800px) {
+    width: 84px;
+    height: 57px;
+  }
 }
