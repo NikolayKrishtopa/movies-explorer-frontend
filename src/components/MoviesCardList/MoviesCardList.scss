@@ -1,8 +1,8 @@
 .movies-card-list {
   margin: 0;
-  padding: 0;
+  padding: 85px 0 0 0;
   display: grid;
-  min-height: 433px;
+  min-height: 360px;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   grid-template-rows: auto;
   row-gap: 43px;

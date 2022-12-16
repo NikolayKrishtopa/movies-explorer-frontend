@@ -16,7 +16,7 @@ import Login from "../EntryForm/Login";
 import NotFoundError from "../NotFoundError/NotFoundError";
 
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   return (
     <div className="page">
       <Routes>

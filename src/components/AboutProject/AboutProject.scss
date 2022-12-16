@@ -73,6 +73,7 @@
   }
   @media (max-width: 500px) {
     grid-template-columns: 100px 1fr;
+    gap: 10px 0;
   }
 }
 .about-project__time-line-term {
@@ -85,6 +86,7 @@
   align-items: center;
   background: #303030;
   @media (max-width: 800px) {
+    height: 35px;
     font-size: 14px;
     line-height: 17px;
   }
