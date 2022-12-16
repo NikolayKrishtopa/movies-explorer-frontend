@@ -5,6 +5,10 @@
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
+  @media (max-width: 500px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 }
 .techs__heading {
   @extend %section-title;

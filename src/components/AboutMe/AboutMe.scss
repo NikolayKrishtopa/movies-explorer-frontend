@@ -43,6 +43,7 @@
   letter-spacing: 0px;
   @media (max-width: 600px) {
     font-size: 11px;
+    line-height: 16px;
   }
 }
 .about-me__description {
@@ -71,9 +72,11 @@
   height: 327px;
   @media (max-width: 800px) {
     width: 255px;
+    height: 307px;
   }
   @media (max-width: 600px) {
     width: 100%;
     grid-column: unset;
+    height: unset;
   }
 }

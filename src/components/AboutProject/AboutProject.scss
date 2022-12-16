@@ -53,6 +53,9 @@
   @extend %content-text;
   line-height: 1.43;
   letter-spacing: 0;
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
 }
 .about-project__time-line {
   margin: 0;
@@ -71,10 +74,12 @@
 }
 .about-project__time-line-term {
   @extend %content-text;
+  letter-spacing: 0;
   line-height: 1.21;
-  padding: 9px 0;
+  height: 35px;
   display: flex;
   justify-content: center;
+  align-items: center;
   background: #303030;
   @media (max-width: 800px) {
     font-size: 14px;
