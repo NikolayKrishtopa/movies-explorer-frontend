@@ -31,17 +31,22 @@
   color: #fff;
   outline: none;
   @media (max-width: 500px) {
+    margin-left: 4px;
+    margin-right: 4px;
     padding: 14px 19px;
     font-size: 11px;
   }
 }
 .search-form__submit-button {
   margin: 0;
-  margin-left: -72px;
+  margin-left: -86px;
   padding: 0;
   height: 34px;
-  width: 66px;
+  width: 80px;
   border-radius: 17px;
   background-color: $blue-solid;
   border: none;
+  @media (max-width: 500px) {
+    margin-left: -90px;
+  }
 }

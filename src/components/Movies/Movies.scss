@@ -4,6 +4,14 @@
   @extend %section;
   padding-bottom: 0;
   background-color: $content-bg-color_dark;
+  @media (max-width: 800px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 .movies__extend-button {
   margin: 50px auto 80px;
@@ -17,4 +25,7 @@
   letter-spacing: 0px;
   color: #fff;
   border-radius: 6px;
+  @media (max-width: 500px) {
+    width: 240px;
+  }
 }

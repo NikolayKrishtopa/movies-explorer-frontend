@@ -3,4 +3,8 @@
 .saved-movies {
   @extend %section;
   background-color: $content-bg-color_dark;
+  @media (max-width: 800px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
