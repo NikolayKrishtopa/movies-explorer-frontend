@@ -5,6 +5,10 @@
   align-items: center;
   padding-top: 100px;
   padding-bottom: 100px;
+  @media (max-width: 800px) {
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
   @media (max-width: 500px) {
     padding-top: 70px;
     padding-bottom: 70px;
@@ -17,6 +21,9 @@
   @extend %section-text-accent;
   margin-top: 90px;
   text-align: center;
+  @media (max-width: 800px) {
+    margin-top: 80px;
+  }
   @media (max-width: 500px) {
     margin-top: 62px;
   }
@@ -28,6 +35,10 @@
   text-align: center;
   max-width: 460px;
   letter-spacing: -0.04em;
+  @media (max-width: 800px) {
+    margin: 22px 0 83px;
+    line-height: 1.5;
+  }
   @media (max-width: 500px) {
     font-size: 11px;
     margin: 24px 0 50px;

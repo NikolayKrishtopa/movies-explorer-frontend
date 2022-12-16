@@ -53,6 +53,9 @@
   @extend %content-text;
   line-height: 1.43;
   letter-spacing: 0;
+  @media (max-width: 800px) {
+    line-height: 1.5;
+  }
   @media (max-width: 500px) {
     font-size: 11px;
   }
@@ -76,13 +79,14 @@
   @extend %content-text;
   letter-spacing: 0;
   line-height: 1.21;
-  height: 35px;
+  height: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #303030;
   @media (max-width: 800px) {
     font-size: 14px;
+    line-height: 17px;
   }
   @media (max-width: 500px) {
     font-size: 11px;
