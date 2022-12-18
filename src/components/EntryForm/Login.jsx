@@ -16,6 +16,7 @@ export default function Login() {
           <label htmlFor="name" className="entry-form__input-label">
             E-mail
             <input
+              required
               type="email"
               minLength={2}
               maxLength={40}
@@ -35,6 +36,7 @@ export default function Login() {
           <label htmlFor="password" className="entry-form__input-label">
             Пароль
             <input
+              required
               type="password"
               minLength={2}
               maxLength={40}

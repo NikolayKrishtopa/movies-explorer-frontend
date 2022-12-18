@@ -12,10 +12,11 @@ export default function Register() {
           <img src={logo} alt="Логотип сайта." className="entry-form__logo" />
         </Link>
         <h2 className="entry-form__heading">Добро пожаловать!</h2>
-        <form className="entry-form__form">
+        <form className="entry-form__form" noValidate>
           <label htmlFor="name" className="entry-form__input-label">
             Имя
             <input
+              required
               type="text"
               minLength={2}
               maxLength={40}
@@ -35,6 +36,7 @@ export default function Register() {
           <label htmlFor="name" className="entry-form__input-label">
             E-mail
             <input
+              required
               type="email"
               minLength={2}
               maxLength={40}
@@ -54,6 +56,7 @@ export default function Register() {
           <label htmlFor="password" className="entry-form__input-label">
             Пароль
             <input
+              required
               type="password"
               minLength={2}
               maxLength={40}
