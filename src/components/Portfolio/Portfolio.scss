@@ -64,13 +64,18 @@
 }
 
 .portfolio__link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 29px;
-  // height: 45px;
-  @media (max-width: 500px) {
-    width: 15px;
-    // padding: 0 0 5px 0;
-  }
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.potfolio__items-list {
+  margin: 0;
+  padding: 0;
+}
+.potfolio__list-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

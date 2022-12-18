@@ -30,6 +30,9 @@
   box-sizing: border-box;
   color: #fff;
   outline: none;
+  &:focus {
+    outline: 1px solid #8b8b8b;
+  }
   @media (max-width: 500px) {
     margin-left: 4px;
     margin-right: 4px;

@@ -4,48 +4,57 @@ export default function Portfolio() {
   return (
     <div className="portfolio">
       <p className="portfolio__heading">Портфолио</p>
-      <div className="portfolio__item">
-        <p className="portfolio__item-text">Статичный сайт</p>
-        <a
-          href="https://nikolaykrishtopa.github.io/woodies/"
-          className="portfolio__link clickable"
-          target="_blank"
-        >
-          <img
-            src={icon}
-            alt="Перейти на страницу проекта"
-            className="portfolio__item-icon clickable"
-          />
-        </a>
-      </div>
-      <div className="portfolio__item">
-        <p className="portfolio__item-text">Адаптивный сайт</p>
-        <a
-          href="https://maksimnikolaev.github.io/Lubimovka/index.html"
-          className="portfolio__link clickable"
-          target="_blank"
-        >
-          <img
-            src={icon}
-            alt="Перейти на страницу проекта"
-            className="portfolio__item-icon"
-          />
-        </a>
-      </div>
-      <div className="portfolio__item">
-        <p className="portfolio__item-text">Одностраничное приложение</p>
-        <a
-          href="https://nikolaykrishtopa.github.io/sign-in"
-          className="portfolio__link"
-          target="_blank"
-        >
-          <img
-            src={icon}
-            alt="Перейти на страницу проекта"
-            className="portfolio__item-icon"
-          />
-        </a>
-      </div>
+      <ul className="potfolio__items-list">
+        <li className="potfolio__list-item">
+          <a
+            href="https://nikolaykrishtopa.github.io/woodies/"
+            className="portfolio__link clickable"
+            target="_blank"
+          >
+            <div className="portfolio__item">
+              <p className="portfolio__item-text">Статичный сайт</p>
+              <img
+                src={icon}
+                alt="Перейти на страницу проекта"
+                className="portfolio__item-icon"
+              />
+            </div>
+          </a>
+        </li>
+        <li className="potfolio__list-item">
+          {" "}
+          <a
+            href="https://maksimnikolaev.github.io/Lubimovka/index.html"
+            className="portfolio__link clickable"
+            target="_blank"
+          >
+            <div className="portfolio__item">
+              <p className="portfolio__item-text">Адаптивный сайт</p>
+              <img
+                src={icon}
+                alt="Перейти на страницу проекта"
+                className="portfolio__item-icon"
+              />
+            </div>
+          </a>
+        </li>
+        <li className="potfolio__list-item">
+          <a
+            href="https://nikolaykrishtopa.github.io/mesto-react/"
+            className="portfolio__link clickable"
+            target="_blank"
+          >
+            <div className="portfolio__item">
+              <p className="portfolio__item-text">Одностраничное приложение</p>
+              <img
+                src={icon}
+                alt="Перейти на страницу проекта"
+                className="portfolio__item-icon"
+              />
+            </div>
+          </a>
+        </li>
+      </ul>
     </div>
   )
 }

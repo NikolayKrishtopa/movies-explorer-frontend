@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
-import logo from "../../images/logo.png";
+import { Link } from "react-router-dom"
+import logo from "../../images/logo.png"
+import useFormAndValidation from "../../hooks/useFormAndValidation"
 
 export default function Register() {
+  const { values, handleChange, errors, isValid, resetForm } =
+    useFormAndValidation()
   return (
     <section className="entry-form">
-      <div className="entry-form__container">
-        <Link to="/">
+      <div className="entry-form__container entry-form__container_type_register">
+        <Link to="/" className="entry-form__link clickable">
           <img src={logo} alt="Логотип сайта." className="entry-form__logo" />
         </Link>
         <h2 className="entry-form__heading">Добро пожаловать!</h2>
@@ -14,41 +17,78 @@ export default function Register() {
             Имя
             <input
               type="text"
-              className="entry-form__input"
+              minLength={2}
+              maxLength={40}
+              className={`entry-form__input ${
+                errors.email && "entry-form__input_state_error"
+              }`}
               name="name"
               id="name"
+              value={values.name}
+              onChange={handleChange}
+              placeholder="Введите имя пользователя"
             />
-            <p className="entry-form__input-error entry-form__input-error_type_name"></p>
+            <p className="entry-form__input-error entry-form__input-error_type_name">
+              {errors.name}
+            </p>
           </label>
           <label htmlFor="name" className="entry-form__input-label">
             E-mail
             <input
               type="email"
-              className="entry-form__input"
+              minLength={2}
+              maxLength={40}
+              className={`entry-form__input ${
+                errors.email && "entry-form__input_state_error"
+              }`}
               name="email"
               id="email"
+              placeholder="Введите email"
+              value={values.email}
+              onChange={handleChange}
             />
-            <p className="entry-form__input-error entry-form__input-error_type_email"></p>
+            <p className="entry-form__input-error entry-form__input-error_type_email">
+              {errors.email}
+            </p>
           </label>
           <label htmlFor="password" className="entry-form__input-label">
             Пароль
             <input
               type="password"
-              className="entry-form__input"
+              minLength={2}
+              maxLength={40}
+              className={`entry-form__input ${
+                errors.password && "entry-form__input_state_error"
+              }`}
               name="password"
               id="password"
+              placeholder="Введите ваш пароль"
+              value={values.password}
+              onChange={handleChange}
             />
-            <p className="entry-form__input-error entry-form__input-error_type_password"></p>
+            <p className="entry-form__input-error entry-form__input-error_type_password">
+              {errors.password}
+            </p>
           </label>
-          <button className="entry-form__submit-btn">Зарегистрироваться</button>
+          <button
+            className={`entry-form__submit-btn clickable entry-form__submit-btn_type_login ${
+              !isValid && "entry-form__submit-btn_state_inactive"
+            }`}
+            disabled={!isValid}
+          >
+            Зарегистрироваться
+          </button>
           <p className="entry-form__mode-switch">
             Уже зарегистрированы?{" "}
-            <Link to="/signin" className="entry-form__mode-switch-link">
+            <Link
+              to="/signin"
+              className="entry-form__mode-switch-link clickable"
+            >
               Войти
             </Link>
           </p>
         </form>
       </div>
     </section>
-  );
+  )
 }

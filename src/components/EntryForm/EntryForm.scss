@@ -1,6 +1,9 @@
 @import "../../commonStylles/commonStyles.scss";
 .entry-form {
   @extend %section-modal;
+  @media (max-width: 500px) {
+    padding: 0 30px;
+  }
 }
 .entry-form__container {
   margin: 0;
@@ -10,10 +13,31 @@
   gap: 40px;
   width: 100%;
   max-width: 396px;
+  @media (max-width: 500px) {
+    justify-content: center;
+    gap: 50px;
+  }
+}
+.entry-form__container_type_login {
+  padding-top: 15px;
+  @media (max-width: 800px) {
+    padding-top: 0;
+  }
+  @media (max-width: 500px) {
+    padding-top: 30px;
+  }
+}
+.entry-form__container_type_register {
+  @media (max-width: 500px) {
+    padding-top: 30px;
+  }
 }
 .entry-form__heading {
   @extend %modal-title_text;
   text-align: left;
+  @media (max-width: 500px) {
+    text-align: center;
+  }
 }
 .entry-form__form {
   margin: 0;
@@ -21,6 +45,9 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  @media (max-width: 500px) {
+    padding-top: 30px;
+  }
 }
 .entry-form__input-label {
   margin: 0;
@@ -33,6 +60,7 @@
   line-height: 12px;
   letter-spacing: 0em;
   gap: 10px;
+  position: relative;
 }
 .entry-form__input {
   margin: 0;
@@ -45,20 +73,25 @@
   background-color: $text-input-bkg;
   border-radius: 8px;
   border: none;
-  outline: none;
   color: #fff;
+  &:focus {
+    outline: 1px solid #8b8b8b;
+  }
+}
+.entry-form__input_state_error {
+  color: #ee3465;
 }
 .entry-form__input-error {
   margin: 0;
   padding: 0;
   font-size: 10px;
   font-weight: 400;
-  line-height: 12px;
+  line-height: 10px;
   letter-spacing: 0em;
   color: #ee3465;
   position: absolute;
   left: 0;
-  bottom: 0;
+  bottom: -20px;
 }
 .entry-form__submit-btn {
   margin: 71px 0 0 0;
@@ -68,6 +101,28 @@
   height: 45px;
   color: #fff;
   border-radius: 3px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  @media (max-width: 500px) {
+    margin-top: 160px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+.entry-form__submit-btn_state_inactive {
+  pointer-events: none;
+  background-color: grey;
+}
+.entry-form__submit-btn_type_login {
+  margin-top: 175px;
+  @media (max-width: 800px) {
+    margin-top: 160px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 250px;
+  }
 }
 .entry-form__mode-switch {
   margin: -4px 0 0 0;
@@ -78,10 +133,21 @@
   line-height: 17px;
   letter-spacing: 0em;
   text-align: center;
+  @media (max-width: 500px) {
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 .entry-form__mode-switch-link {
   margin: 0 0 0 6px;
   padding: 0;
   color: $blue-solid;
   text-decoration: none;
+}
+
+.entry-form__link {
+  display: flex;
+  @media (max-width: 500px) {
+    justify-content: center;
+  }
 }
