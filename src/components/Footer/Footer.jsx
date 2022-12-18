@@ -10,19 +10,19 @@ export default function Footer() {
           <a
             href="https://practicum.yandex.ru/"
             target="_blank"
-            className="footer__link"
+            className="footer__link clickable"
           >
             Яндекс.Практикум
           </a>
           <a
             href="https://github.com/NikolayKrishtopa"
             target="_blank"
-            className="footer__link"
+            className="footer__link clickable"
           >
             Github
           </a>
         </div>
       </div>
     </footer>
-  );
+  )
 }

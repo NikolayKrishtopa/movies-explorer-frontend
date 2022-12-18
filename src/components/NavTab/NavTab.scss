@@ -12,6 +12,7 @@
   gap: 40px;
   @media (max-width: 500px) {
     gap: 24px;
+    background-color: $content-bg-color_dark;
   }
 }
 

@@ -1,5 +1,5 @@
 export default function FilterCheckbox(props) {
-  const { isChecked, onCheck } = props;
+  const { isChecked, onCheck } = props
   return (
     <div className="filter-checkbox">
       <div className="filter-checkbox__checkbox-container">
@@ -22,5 +22,5 @@ export default function FilterCheckbox(props) {
         Короткометражки
       </label>
     </div>
-  );
+  )
 }

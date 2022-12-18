@@ -86,3 +86,11 @@ $green-solid: #3ddc84;
 $blue-solid: #4285f4;
 
 $text-input-bkg: #2f2f2f;
+
+.clickable {
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+  &:hover {
+    opacity: 60%;
+  }
+}

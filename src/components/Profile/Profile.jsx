@@ -18,14 +18,14 @@ export default function Profile() {
           </div>
         </div>
         <div className="profile__nav">
-          <button className="profile__nav-button profile__nav-button_type_edit">
+          <button className="profile__nav-button profile__nav-button_type_edit clickable">
             Редактировать
           </button>
-          <button className="profile__nav-button profile__nav-button_type_quit">
+          <button className="profile__nav-button profile__nav-button_type_quit clickable">
             Выйти из аккаунта
           </button>
         </div>
       </div>
     </section>
-  );
+  )
 }

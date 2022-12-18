@@ -1,4 +1,4 @@
-import icon from "../../images/link-icon.svg";
+import icon from "../../images/link-icon.svg"
 
 export default function Portfolio() {
   return (
@@ -8,13 +8,13 @@ export default function Portfolio() {
         <p className="portfolio__item-text">Статичный сайт</p>
         <a
           href="https://nikolaykrishtopa.github.io/woodies/"
-          className="portfolio__link"
+          className="portfolio__link clickable"
           target="_blank"
         >
           <img
             src={icon}
             alt="Перейти на страницу проекта"
-            className="portfolio__item-icon"
+            className="portfolio__item-icon clickable"
           />
         </a>
       </div>
@@ -22,7 +22,7 @@ export default function Portfolio() {
         <p className="portfolio__item-text">Адаптивный сайт</p>
         <a
           href="https://maksimnikolaev.github.io/Lubimovka/index.html"
-          className="portfolio__link"
+          className="portfolio__link clickable"
           target="_blank"
         >
           <img
@@ -47,5 +47,5 @@ export default function Portfolio() {
         </a>
       </div>
     </div>
-  );
+  )
 }

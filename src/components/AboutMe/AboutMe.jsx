@@ -1,5 +1,5 @@
-import userPhoto from "../../images/photo.png";
-import Portfolio from "../Portfolio/Portfolio";
+import userPhoto from "../../images/photo.png"
+import Portfolio from "../Portfolio/Portfolio"
 
 export default function AboutMe() {
   return (
@@ -23,7 +23,7 @@ export default function AboutMe() {
           </p>
           <a
             href="https://github.com/NikolayKrishtopa"
-            className="about-me___link"
+            className="about-me___link clickable"
             target="_blank"
           >
             Github
@@ -32,5 +32,5 @@ export default function AboutMe() {
       </div>
       <Portfolio />
     </section>
-  );
+  )
 }

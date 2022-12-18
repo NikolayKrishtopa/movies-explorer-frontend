@@ -1,39 +1,43 @@
-import logo from "../../images/logo.png";
-import profileIcon from "../../images/profile-icon.svg";
-import burgerIcon from "../../images/burger-menu-icon.svg";
-import { Link } from "react-router-dom";
-import SideBar from "../SideBar/SideBar";
-import { useState } from "react";
+import logo from "../../images/logo.png"
+import profileIcon from "../../images/profile-icon.svg"
+import burgerIcon from "../../images/burger-menu-icon.svg"
+import { Link } from "react-router-dom"
+import SideBar from "../SideBar/SideBar"
+import { useState } from "react"
 
 export default function Header(props) {
-  const { isLogged } = props;
-  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+  const { isLogged } = props
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
 
   const openSideBar = () => {
-    setIsSideBarOpen(true);
-  };
+    setIsSideBarOpen(true)
+  }
   const closeSideBar = () => {
-    setIsSideBarOpen(false);
-  };
+    setIsSideBarOpen(false)
+  }
   return (
     <header className="header">
       <nav className="header__nav">
         <Link to="/">
-          <img src={logo} alt="Логотип сайта." className="header__logo" />
+          <img
+            src={logo}
+            alt="Логотип сайта."
+            className="header__logo clickable"
+          />
         </Link>
         <div className="header__nav-container">
           <div className="header__buttons header__buttons_left">
             <Link
               to="/movies"
-              className={`header__buttton ${
-                !isLogged && "header__button_hidden"
+              className={`header__buttton clickable ${
+                !isLogged && "header__button_hidden clickable"
               }`}
             >
               Фильмы
             </Link>
             <Link
               to="/saved-movies"
-              className={`header__buttton ${
+              className={`header__buttton clickable ${
                 !isLogged && "header__button_hidden"
               }`}
             >
@@ -45,13 +49,13 @@ export default function Header(props) {
               <>
                 <Link
                   to="/signup"
-                  className="header__buttton header__buttton_text_small"
+                  className="header__buttton header__buttton_text_small clickable"
                 >
                   Регистрация
                 </Link>
                 <Link
                   to="/signin"
-                  className="header__buttton header__buttton_text_small header__buttton_style_green"
+                  className="header__buttton header__buttton_text_small header__buttton_style_green clickable"
                 >
                   Войти
                 </Link>
@@ -59,7 +63,7 @@ export default function Header(props) {
             ) : (
               <>
                 <div className="header__profile-container">
-                  <Link to="/profile" className="header__buttton">
+                  <Link to="/profile" className="header__buttton clickable">
                     Аккаунт
                   </Link>
                   <img
@@ -68,7 +72,10 @@ export default function Header(props) {
                     alt="иконка кнопки профиля пользователя."
                   />
                 </div>
-                <button className="header__burger-button" onClick={openSideBar}>
+                <button
+                  className="header__burger-button clickable"
+                  onClick={openSideBar}
+                >
                   <img
                     src={burgerIcon}
                     alt="Кнопка разворачивания меню."
@@ -82,5 +89,5 @@ export default function Header(props) {
       </nav>
       <SideBar isOpen={isSideBarOpen} onClose={closeSideBar} />
     </header>
-  );
+  )
 }

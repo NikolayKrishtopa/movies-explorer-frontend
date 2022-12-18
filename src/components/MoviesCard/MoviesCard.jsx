@@ -1,16 +1,16 @@
-import likedIcon from "../../images/liked-card-icon.svg";
-import removeIcon from "../../images/remove-card-icon.svg";
+import likedIcon from "../../images/liked-card-icon.svg"
+import removeIcon from "../../images/remove-card-icon.svg"
 
 export default function MoviesCard(props) {
-  const { card, mode } = props;
-  const { nameRU, duration, isAdded, thumbnail } = card;
+  const { card, mode } = props
+  const { nameRU, duration, isAdded, thumbnail } = card
   return (
     <div className="movies-card">
       {!isAdded ? (
-        <button className="movies-card__add-button">Сохранить</button>
+        <button className="movies-card__add-button clickable">Сохранить</button>
       ) : (
         <button
-          className={`movies-card__remove-button ${
+          className={`movies-card__remove-button clickable ${
             mode === "collection" && "movies-card__remove-button_in-collection"
           }`}
         >
@@ -31,5 +31,5 @@ export default function MoviesCard(props) {
         <p className="movies-card__duration">{duration}</p>
       </div>
     </div>
-  );
+  )
 }
