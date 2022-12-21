@@ -1,0 +1,113 @@
+@import "../../commonStylles/commonStyles.scss";
+.about-project {
+  @extend %section;
+  background-color: $content-bg-color_dark;
+}
+.about-project__heading {
+  @extend %section-title;
+  @media (max-width: 600px) {
+    padding-bottom: 28px;
+  }
+}
+.about-project__facts {
+  margin: 0;
+  padding: 70px 0 110px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  @media (max-width: 800px) {
+    gap: 30px;
+    padding-bottom: 93px;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 56px;
+    padding: 60px 0;
+  }
+}
+.about-project__fact {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  @media (max-width: 800px) {
+    gap: 22px;
+  }
+  @media (max-width: 600px) {
+    gap: 16px;
+  }
+}
+.about-project__fact-heading {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
+}
+.about-project__fact-paragraph {
+  @extend %content-text;
+  line-height: 1.43;
+  letter-spacing: 0;
+  @media (max-width: 800px) {
+    line-height: 1.5;
+  }
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
+}
+.about-project__time-line {
+  margin: 0;
+  padding: 0;
+  gap: 14px 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 228px 1fr;
+  grid-template-rows: auto;
+  @media (max-width: 800px) {
+    grid-template-columns: 140px 1fr;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 100px 1fr;
+    gap: 10px 0;
+  }
+}
+.about-project__time-line-term {
+  @extend %content-text;
+  letter-spacing: 0;
+  line-height: 1.21;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #303030;
+  @media (max-width: 800px) {
+    height: 35px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
+}
+.about-project__time-line-term_style_green {
+  background-color: $green-solid;
+  line-height: 1.21;
+  color: #000;
+}
+.about-project__time-line-term-annotation {
+  @extend %content-text;
+  display: flex;
+  justify-content: center;
+  color: #8b8b8b;
+  @media (max-width: 800px) {
+    font-size: 14px;
+  }
+  @media (max-width: 500px) {
+    font-size: 11px;
+  }
+}

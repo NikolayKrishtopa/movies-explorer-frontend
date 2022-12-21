@@ -1,0 +1,78 @@
+@import "../../commonStylles/commonStyles.scss";
+.techs {
+  @extend %section;
+  background-color: $content-bg-color_light;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  @media (max-width: 800px) {
+    padding-bottom: 90px;
+    padding-top: 90px;
+  }
+  @media (max-width: 500px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: $content-bg-color_dark;
+  }
+}
+.techs__heading {
+  @extend %section-title;
+}
+.techs__text-accent {
+  @extend %section-text-accent;
+  margin-top: 90px;
+  text-align: center;
+  @media (max-width: 800px) {
+    margin-top: 80px;
+  }
+  @media (max-width: 500px) {
+    margin-top: 62px;
+  }
+}
+.techs__text {
+  @extend %content-text;
+  margin: 26px 0 100px;
+  line-height: 1.43;
+  text-align: center;
+  max-width: 460px;
+  letter-spacing: -0.04em;
+  @media (max-width: 800px) {
+    margin: 22px 0 83px;
+    line-height: 1.5;
+  }
+  @media (max-width: 500px) {
+    font-size: 11px;
+    margin: 24px 0 50px;
+  }
+}
+.techs__techs-tiles {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+  gap: 10px;
+  @media (max-width: 750px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.techs__tech-tile {
+  @extend %content-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.21;
+  margin: 0;
+  padding: 0;
+  background-color: $section-tile-bkg;
+  width: 90px;
+  height: 60px;
+  border-radius: 10px;
+  @media (max-width: 800px) {
+    width: 84px;
+    height: 57px;
+  }
+}

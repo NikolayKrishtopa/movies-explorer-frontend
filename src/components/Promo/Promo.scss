@@ -1,0 +1,40 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.promo {
+  @extend %section;
+  padding-top: 30px;
+  padding-bottom: 0;
+  background-color: #073042;
+  background-image: url(../../images/landing-logo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 598px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-position-y: 155px;
+  @media (max-width: 800px) {
+    min-height: 858px;
+    padding-top: 55px;
+    background-position-y: 300px;
+  }
+  @media (max-width: 500px) {
+    padding-top: 35px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 645px;
+    background-size: 248px;
+    background-position-y: 220px;
+  }
+}
+
+.promo__title {
+  @extend %section-text-accent;
+  max-width: 730px;
+  text-align: center;
+  @media (max-width: 500px) {
+    // margin-top: 80px;
+    font-size: 31px;
+    line-height: 39px;
+  }
+}

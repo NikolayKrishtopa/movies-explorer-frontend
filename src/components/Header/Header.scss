@@ -1,0 +1,122 @@
+@import "../../commonStylles/commonStyles.scss";
+
+.header {
+  @extend %section;
+  height: 74px;
+  margin-bottom: -74px;
+  background-color: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  @media (max-width: 800px) {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @media (max-width: 500px) {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
+
+.header__burger-button {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  display: none;
+  @media (max-width: 800px) {
+    display: block;
+  }
+}
+.header__burger-icon {
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 44px;
+}
+
+.header__nav-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 800px) {
+    justify-content: flex-end;
+  }
+}
+.header__buttons {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__buttons_left {
+  gap: 16px;
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+.header__buttons_right {
+  gap: 30px;
+  @media (max-width: 500px) {
+    gap: 14px;
+  }
+}
+.header__button_hidden {
+  display: none;
+}
+.header__buttton {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0px;
+  text-decoration: none;
+  color: #fff;
+}
+.header__buttton_text_small {
+  font-size: 12px;
+  line-height: 16px;
+  @media (max-width: 500px) {
+    font-size: 10px;
+  }
+}
+.header__buttton_style_green {
+  padding: 8px 20px;
+  background-color: $green-solid;
+  border-radius: 3px;
+  color: #000;
+  @media (max-width: 500px) {
+    padding: 5px 12px;
+  }
+}
+
+.header__profile-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  @media (max-width: 800px) {
+    display: none;
+  }
+}
+.header__profile-icon {
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #313131;
+}
