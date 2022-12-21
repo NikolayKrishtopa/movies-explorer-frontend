@@ -5,7 +5,7 @@ export default function MoviesCard(props) {
   const { card, mode } = props
   const { nameRU, duration, isAdded, thumbnail } = card
   return (
-    <div className="movies-card">
+    <li className="movies-card">
       {!isAdded ? (
         <button className="movies-card__add-button clickable">Сохранить</button>
       ) : (
@@ -30,6 +30,6 @@ export default function MoviesCard(props) {
         <p className="movies-card__name">{nameRU}</p>
         <p className="movies-card__duration">{duration}</p>
       </div>
-    </div>
+    </li>
   )
 }

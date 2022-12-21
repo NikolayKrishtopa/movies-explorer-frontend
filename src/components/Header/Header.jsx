@@ -1,4 +1,4 @@
-import logo from "../../images/logo.png"
+import logo from "../../images/logo.svg"
 import profileIcon from "../../images/profile-icon.svg"
 import burgerIcon from "../../images/burger-menu-icon.svg"
 import { Link } from "react-router-dom"

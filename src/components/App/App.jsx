@@ -29,12 +29,14 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Promo />
-                <NavTab />
-                <AboutProject />
-                <Techs />
-                <AboutMe />
-                <Footer />
+                <main>
+                  <Promo />
+                  <NavTab />
+                  <AboutProject />
+                  <Techs />
+                  <AboutMe />
+                  <Footer />
+                </main>
               </>
             }
           />
