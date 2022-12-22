@@ -14,10 +14,24 @@ import { useState } from 'react'
 import Register from '../EntryForm/Register'
 import Login from '../EntryForm/Login'
 import NotFoundError from '../NotFoundError/NotFoundError'
+import useMoviesState from '../../hooks/useMoviesState'
 
 function App() {
   const [isLogged, setIsLogged] = useState(true)
   const [notFound, setNotFound] = useState(false)
+
+  const {
+    submitSearch,
+    isShortMeterChecked,
+    setIsShortMeterChecked,
+    searchRequestText,
+    setSearchRequestText,
+    moviesToShow,
+    itemsPerPage,
+    setPage,
+    setItemsPerPage,
+  } = useMoviesState()
+
   return (
     <div className='page'>
       {notFound ? (
@@ -45,7 +59,17 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Movies />
+                <Movies
+                  submitSearch={submitSearch}
+                  isShortMeterChecked={isShortMeterChecked}
+                  setIsShortMeterChecked={setIsShortMeterChecked}
+                  searchRequestText={searchRequestText}
+                  setSearchRequestText={setSearchRequestText}
+                  moviesToShow={moviesToShow}
+                  itemsPerPage={itemsPerPage}
+                  setPage={setPage}
+                  setItemsPerPage={setItemsPerPage}
+                />
                 <Footer />
               </>
             }

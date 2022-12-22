@@ -1,6 +1,5 @@
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import SearchForm from '../SearchForm/SearchForm'
-import useMoviesState from '../../hooks/useMoviesState'
 
 export default function Movies(props) {
   const {
@@ -13,7 +12,7 @@ export default function Movies(props) {
     itemsPerPage,
     setPage,
     setItemsPerPage,
-  } = useMoviesState()
+  } = props
   return (
     <section className='movies'>
       <SearchForm
