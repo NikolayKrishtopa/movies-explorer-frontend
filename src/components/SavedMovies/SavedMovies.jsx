@@ -1,14 +1,13 @@
-import MoviesCardList from "../MoviesCardList/MoviesCardList"
-import SearchForm from "../SearchForm/SearchForm"
-import cardsTemplate from "../../utils/DEV_ONLY_REMOVE"
+import MoviesCardList from '../MoviesCardList/MoviesCardList'
+import SearchForm from '../SearchForm/SearchForm'
 
 export default function SavedMovies() {
   return (
-    <section className="saved-movies">
+    <section className='saved-movies'>
       <SearchForm />
       <MoviesCardList
-        cards={cardsTemplate.filter((e) => e.isAdded)}
-        mode="collection"
+        // cards={}
+        mode='collection'
       />
     </section>
   )

@@ -1,31 +1,31 @@
-import AboutMe from "../AboutMe/AboutMe"
-import AboutProject from "../AboutProject/AboutProject"
-import Footer from "../Footer/Footer"
-import Header from "../Header/Header"
-import NavTab from "../NavTab/NavTab"
-import Promo from "../Promo/Promo"
-import Techs from "../Techs/Techs"
-import "./App.scss"
-import { Route, Routes } from "react-router-dom"
-import Movies from "../Movies/Movies"
-import SavedMovies from "../SavedMovies/SavedMovies"
-import Profile from "../Profile/Profile"
-import { useState } from "react"
-import Register from "../EntryForm/Register"
-import Login from "../EntryForm/Login"
-import NotFoundError from "../NotFoundError/NotFoundError"
+import AboutMe from '../AboutMe/AboutMe'
+import AboutProject from '../AboutProject/AboutProject'
+import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import NavTab from '../NavTab/NavTab'
+import Promo from '../Promo/Promo'
+import Techs from '../Techs/Techs'
+import './App.scss'
+import { Route, Routes } from 'react-router-dom'
+import Movies from '../Movies/Movies'
+import SavedMovies from '../SavedMovies/SavedMovies'
+import Profile from '../Profile/Profile'
+import { useState } from 'react'
+import Register from '../EntryForm/Register'
+import Login from '../EntryForm/Login'
+import NotFoundError from '../NotFoundError/NotFoundError'
 
 function App() {
-  const [isLogged, setIsLogged] = useState(false)
+  const [isLogged, setIsLogged] = useState(true)
   const [notFound, setNotFound] = useState(false)
   return (
-    <div className="page">
+    <div className='page'>
       {notFound ? (
         <NotFoundError onBackCkick={() => setNotFound(false)} />
       ) : (
         <Routes>
           <Route
-            path="/"
+            path='/'
             element={
               <>
                 <Header isLogged={isLogged} />
@@ -41,17 +41,17 @@ function App() {
             }
           />
           <Route
-            path="/movies"
+            path='/movies'
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Movies onNotFound={() => setNotFound(true)} />
+                <Movies />
                 <Footer />
               </>
             }
           />
           <Route
-            path="/saved-movies"
+            path='/saved-movies'
             element={
               <>
                 <Header isLogged={isLogged} />
@@ -61,7 +61,7 @@ function App() {
             }
           />
           <Route
-            path="/profile"
+            path='/profile'
             element={
               <>
                 <Header isLogged={isLogged} />
@@ -69,8 +69,9 @@ function App() {
               </>
             }
           />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/signin" element={<Login />} />
+          <Route path='/signup' element={<Register />} />
+          <Route path='/signin' element={<Login />} />
+          <Route path='/*' element={<NotFoundError />} />
         </Routes>
       )}
     </div>
