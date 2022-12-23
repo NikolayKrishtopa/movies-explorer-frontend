@@ -12,7 +12,11 @@ export default function Movies(props) {
     itemsPerPage,
     setPage,
     setItemsPerPage,
-  } = props
+    page,
+  } = props.state
+
+  // *** Local state for this component - shown at the moment cards ***
+  const shownMovies = moviesToShow.slice(0, itemsPerPage * page)
   return (
     <section className='movies'>
       <SearchForm
@@ -22,10 +26,10 @@ export default function Movies(props) {
         searchRequestText={searchRequestText}
         setSearchRequestText={setSearchRequestText}
       />
-      <MoviesCardList cards={moviesToShow} />
+      <MoviesCardList cards={shownMovies} />
       <button
         className={`movies__extend-button clickable ${
-          moviesToShow.length <= itemsPerPage &&
+          shownMovies.length === moviesToShow.length &&
           'movies__extend-button_state_hidden'
         }`}
         onClick={() => setPage((prev) => prev + 1)}

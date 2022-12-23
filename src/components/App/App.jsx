@@ -20,17 +20,7 @@ function App() {
   const [isLogged, setIsLogged] = useState(true)
   const [notFound, setNotFound] = useState(false)
 
-  const {
-    submitSearch,
-    isShortMeterChecked,
-    setIsShortMeterChecked,
-    searchRequestText,
-    setSearchRequestText,
-    moviesToShow,
-    itemsPerPage,
-    setPage,
-    setItemsPerPage,
-  } = useMoviesState()
+  const moviesState = useMoviesState()
 
   return (
     <div className='page'>
@@ -59,17 +49,7 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Movies
-                  submitSearch={submitSearch}
-                  isShortMeterChecked={isShortMeterChecked}
-                  setIsShortMeterChecked={setIsShortMeterChecked}
-                  searchRequestText={searchRequestText}
-                  setSearchRequestText={setSearchRequestText}
-                  moviesToShow={moviesToShow}
-                  itemsPerPage={itemsPerPage}
-                  setPage={setPage}
-                  setItemsPerPage={setItemsPerPage}
-                />
+                <Movies state={moviesState} />
                 <Footer />
               </>
             }

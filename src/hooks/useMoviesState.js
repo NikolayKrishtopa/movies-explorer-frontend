@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import getInitialMovies from '../utils/moviesApi'
 
-export default function () {
+export default function useMoviesState() {
   const [initialMovies, setInitialMovies] = useState([])
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(12)
@@ -26,7 +26,6 @@ export default function () {
   let moviesToShow = initialMovies
     .filter((e) => e.nameRU.includes(submittedSearch))
     .filter((n) => (isShortMeterChecked ? n.duration < 41 : n))
-    .slice(0, itemsPerPage * page)
   return {
     submitSearch,
     isShortMeterChecked,
@@ -37,5 +36,6 @@ export default function () {
     setPage,
     itemsPerPage,
     setItemsPerPage,
+    page,
   }
 }
