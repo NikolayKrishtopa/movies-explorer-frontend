@@ -26,7 +26,7 @@ export default function Movies(props) {
         searchRequestText={searchRequestText}
         setSearchRequestText={setSearchRequestText}
       />
-      <MoviesCardList cards={shownMovies} />
+      <MoviesCardList cards={shownMovies} onAdd={props.onAdd} />
       <button
         className={`movies__extend-button clickable ${
           shownMovies.length === moviesToShow.length &&

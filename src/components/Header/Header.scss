@@ -1,4 +1,4 @@
-@import "../../commonStylles/commonStyles.scss";
+@import '../../commonStylles/commonStyles.scss';
 
 .header {
   @extend %section;
@@ -87,6 +87,10 @@
   letter-spacing: 0px;
   text-decoration: none;
   color: #fff;
+}
+.header__buttton.active {
+  text-decoration: underline;
+  color: rgb(100, 202, 168);
 }
 .header__buttton_text_small {
   font-size: 12px;

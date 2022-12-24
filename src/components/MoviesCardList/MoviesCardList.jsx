@@ -5,7 +5,12 @@ export default function MoviesCardList(props) {
   return (
     <ul className='movies-card-list'>
       {cards?.map((e) => (
-        <MoviesCard card={e} key={e.id} mode={props.mode} />
+        <MoviesCard
+          card={e}
+          key={e.id ? e.id : e._id}
+          mode={props.mode}
+          onAdd={props.onAdd}
+        />
       ))}
     </ul>
   )

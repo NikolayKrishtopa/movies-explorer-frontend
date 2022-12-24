@@ -15,18 +15,55 @@ import Register from '../EntryForm/Register'
 import Login from '../EntryForm/Login'
 import NotFoundError from '../NotFoundError/NotFoundError'
 import useMoviesState from '../../hooks/useMoviesState'
+import { useEffect } from 'react'
+import mainApi from '../../utils/mainApi'
+import CurrentUserContext from '../../contexts/CurrentUserContext'
+import useAuth from '../../hooks/useAuth'
 
 function App() {
-  const [isLogged, setIsLogged] = useState(true)
-  const [notFound, setNotFound] = useState(false)
-
+  // **Хук состояния страницы Фильмы**
   const moviesState = useMoviesState()
+
+  // **Хук состояния авторизации пользователя**
+  const {
+    currentUser,
+    isLogged,
+    submitLogin,
+    handleLogout,
+    submitRegister,
+    submitProfileUpdate,
+  } = useAuth()
+
+  // **Хук состояния страницы Сохраненные фильмы**
+  const [userMovies, setUserMovies] = useState([])
+
+  const getSavedMovies = async () => {
+    try {
+      const movies = await mainApi.getUserMovies()
+      setUserMovies(movies)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const addMovieToSaved = async (movie) => {
+    try {
+      const res = await mainApi.addMovie(movie)
+      if (res.movieId) {
+        setUserMovies([...userMovies, res])
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  useEffect(() => {
+    if (isLogged) return
+    getSavedMovies()
+  }, [isLogged])
 
   return (
     <div className='page'>
-      {notFound ? (
-        <NotFoundError onBackCkick={() => setNotFound(false)} />
-      ) : (
+      <CurrentUserContext.Provider value={currentUser}>
         <Routes>
           <Route
             path='/'
@@ -49,7 +86,7 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Movies state={moviesState} />
+                <Movies state={moviesState} onAdd={addMovieToSaved} />
                 <Footer />
               </>
             }
@@ -59,7 +96,7 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <SavedMovies />
+                <SavedMovies userMovies={userMovies} />
                 <Footer />
               </>
             }
@@ -69,15 +106,21 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Profile />
+                <Profile
+                  onLogout={handleLogout}
+                  onSubmit={submitProfileUpdate}
+                />
               </>
             }
           />
-          <Route path='/signup' element={<Register />} />
-          <Route path='/signin' element={<Login />} />
+          <Route
+            path='/signup'
+            element={<Register onSubmit={submitRegister} />}
+          />
+          <Route path='/signin' element={<Login onSubmit={submitLogin} />} />
           <Route path='/*' element={<NotFoundError />} />
         </Routes>
-      )}
+      </CurrentUserContext.Provider>
     </div>
   )
 }

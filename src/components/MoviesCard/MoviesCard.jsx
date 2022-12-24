@@ -3,13 +3,35 @@ import removeIcon from '../../images/remove-card-icon.svg'
 import { BASE_URL_MOVIES } from '../../utils/config'
 
 export default function MoviesCard(props) {
-  const { card, mode } = props
+  const { card, mode, onAdd } = props
   const { nameRU, duration, isAdded, image } = card
-  const imgUrl = BASE_URL_MOVIES + image.url
+  const imgUrl = mode === 'collection' ? image : BASE_URL_MOVIES + image.url
+  const addCard = (card) => {
+    const cardToAdd = {
+      country: card.country,
+      director: card.director,
+      duration: card.duration,
+      year: card.year,
+      description: card.description,
+      image: BASE_URL_MOVIES + card.image.url,
+      trailerLink: card.trailerLink,
+      thumbnail: BASE_URL_MOVIES + card.image.formats.thumbnail.url,
+      movieId: card.id,
+      nameRU: card.nameRU,
+      nameEN: card.nameEN,
+    }
+    // console.log(cardToAdd)
+    onAdd(cardToAdd)
+  }
   return (
     <li className='movies-card'>
       {!isAdded ? (
-        <button className='movies-card__add-button clickable'>Сохранить</button>
+        <button
+          className='movies-card__add-button clickable'
+          onClick={() => addCard(card)}
+        >
+          Сохранить
+        </button>
       ) : (
         <button
           className={`movies-card__remove-button clickable ${
@@ -27,7 +49,6 @@ export default function MoviesCard(props) {
         src={imgUrl}
         alt='Изображение постера фильма.'
         className='movies-card__picture'
-        onClick={() => console.log(imgUrl)}
       />
       <div className='movies-card__annotation-container'>
         <p className='movies-card__name'>{nameRU}</p>
