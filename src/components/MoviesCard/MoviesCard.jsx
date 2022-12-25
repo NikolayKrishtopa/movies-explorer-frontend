@@ -4,7 +4,7 @@ import { BASE_URL_MOVIES } from '../../utils/config'
 
 export default function MoviesCard(props) {
   const { card, mode, onAdd, onRemove } = props
-  const { nameRU, duration, image } = card
+  const { nameRU, duration, image, isAdded, idInCollection } = card
   const imgUrl = mode === 'collection' ? image : BASE_URL_MOVIES + image.url
   const addCard = (card) => {
     const cardToAdd = {
@@ -26,12 +26,16 @@ export default function MoviesCard(props) {
 
   return (
     <li className='movies-card'>
-      {mode === 'collection' ? (
+      {mode === 'collection' || isAdded ? (
         <button
           className={`movies-card__remove-button clickable ${
             mode === 'collection' && 'movies-card__remove-button_in-collection'
           }`}
-          onClick={() => onRemove(card._id)}
+          onClick={
+            mode === 'collection'
+              ? () => onRemove(card._id)
+              : () => onRemove(idInCollection)
+          }
         >
           <img
             src={mode !== 'collection' ? likedIcon : removeIcon}

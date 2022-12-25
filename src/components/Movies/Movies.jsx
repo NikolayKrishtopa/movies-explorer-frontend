@@ -2,6 +2,7 @@ import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import SearchForm from '../SearchForm/SearchForm'
 
 export default function Movies(props) {
+  const { state, collection } = props
   const {
     submitSearch,
     isShortMeterChecked,
@@ -13,10 +14,20 @@ export default function Movies(props) {
     setPage,
     setItemsPerPage,
     page,
-  } = props.state
+  } = state
 
   // *** Local state for this component - shown at the moment cards ***
-  const shownMovies = moviesToShow.slice(0, itemsPerPage * page)
+  const shownMovies = [...moviesToShow]
+    .slice(0, itemsPerPage * page)
+    .map((e) => {
+      return collection.some((n) => n.movieId === e.id)
+        ? {
+            ...e,
+            isAdded: true,
+            idInCollection: collection.find((m) => m.movieId === e.id)._id,
+          }
+        : { ...e, isAdded: false, idInCollection: null }
+    })
   return (
     <section className='movies'>
       <SearchForm
@@ -26,7 +37,12 @@ export default function Movies(props) {
         searchRequestText={searchRequestText}
         setSearchRequestText={setSearchRequestText}
       />
-      <MoviesCardList cards={shownMovies} onAdd={props.onAdd} />
+      <MoviesCardList
+        cards={shownMovies}
+        onAdd={props.onAdd}
+        message='Ничего не найдено'
+        onRemove={props.onRemove}
+      />
       <button
         className={`movies__extend-button clickable ${
           shownMovies.length === moviesToShow.length &&

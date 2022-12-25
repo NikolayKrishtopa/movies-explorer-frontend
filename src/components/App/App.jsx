@@ -96,7 +96,12 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <Movies state={moviesState} onAdd={addMovieToSaved} />
+                <Movies
+                  state={moviesState}
+                  onAdd={addMovieToSaved}
+                  onRemove={removeMovieFromSaved}
+                  collection={userMovies}
+                />
                 <Footer />
               </>
             }

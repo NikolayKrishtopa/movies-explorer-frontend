@@ -11,6 +11,7 @@ export default function SavedMovies(props) {
         mode='collection'
         onAdd={props.onAdd}
         onRemove={props.onRemove}
+        message='В коллекции пользователя пока нет фильмов'
       />
     </section>
   )

@@ -1,4 +1,4 @@
-@import "../../commonStylles/commonStyles.scss";
+@import '../../commonStylles/commonStyles.scss';
 
 %text-style {
   font-size: 13px;
@@ -15,6 +15,7 @@
   background-color: $content-bg-color_dark;
   padding-top: 79px;
   padding-bottom: 0;
+  justify-self: flex-end;
   @media (max-width: 800px) {
     padding-left: 30px;
     padding-right: 30px;
