@@ -62,7 +62,6 @@ class MainApi {
     const res = await fetch(`${this._baseUrl}/movies/${movieId}`, {
       headers: this._headers,
       method: 'DELETE',
-      body: JSON.stringify(movieId),
       credentials: 'include',
     })
     return this._getResponseData(res, 'попытке удаления фильма из коллекции')

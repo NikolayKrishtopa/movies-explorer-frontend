@@ -10,6 +10,7 @@ export default function MoviesCardList(props) {
           key={e.id ? e.id : e._id}
           mode={props.mode}
           onAdd={props.onAdd}
+          onRemove={props.onRemove}
         />
       ))}
     </ul>

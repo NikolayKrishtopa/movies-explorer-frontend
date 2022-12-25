@@ -37,7 +37,7 @@ function App() {
   // **Хук состояния страницы Сохраненные фильмы**
   const [userMovies, setUserMovies] = useState([])
 
-  const getSavedMovies = async () => {
+  const setSavedMovies = async () => {
     try {
       const movies = await mainApi.getUserMovies()
       setUserMovies(movies)
@@ -56,9 +56,19 @@ function App() {
       console.log(err)
     }
   }
+  const removeMovieFromSaved = async (id) => {
+    try {
+      const res = await mainApi.deleteMovie(id)
+      if (res._id) {
+        setUserMovies(userMovies.filter((e) => e._id !== id))
+      }
+    } catch (err) {
+      console.log(err)
+    }
+  }
   useEffect(() => {
     if (isLogged) return
-    getSavedMovies()
+    setSavedMovies()
   }, [isLogged])
 
   return (
@@ -96,7 +106,10 @@ function App() {
             element={
               <>
                 <Header isLogged={isLogged} />
-                <SavedMovies userMovies={userMovies} />
+                <SavedMovies
+                  userMovies={userMovies}
+                  onRemove={removeMovieFromSaved}
+                />
                 <Footer />
               </>
             }

@@ -3,8 +3,8 @@ import removeIcon from '../../images/remove-card-icon.svg'
 import { BASE_URL_MOVIES } from '../../utils/config'
 
 export default function MoviesCard(props) {
-  const { card, mode, onAdd } = props
-  const { nameRU, duration, isAdded, image } = card
+  const { card, mode, onAdd, onRemove } = props
+  const { nameRU, duration, image } = card
   const imgUrl = mode === 'collection' ? image : BASE_URL_MOVIES + image.url
   const addCard = (card) => {
     const cardToAdd = {
@@ -23,26 +23,28 @@ export default function MoviesCard(props) {
     // console.log(cardToAdd)
     onAdd(cardToAdd)
   }
+
   return (
     <li className='movies-card'>
-      {!isAdded ? (
-        <button
-          className='movies-card__add-button clickable'
-          onClick={() => addCard(card)}
-        >
-          Сохранить
-        </button>
-      ) : (
+      {mode === 'collection' ? (
         <button
           className={`movies-card__remove-button clickable ${
             mode === 'collection' && 'movies-card__remove-button_in-collection'
           }`}
+          onClick={() => onRemove(card._id)}
         >
           <img
             src={mode !== 'collection' ? likedIcon : removeIcon}
             alt={mode !== 'collection' ? 'галочка.' : 'крестик.'}
             className='movies-card__icon'
           />
+        </button>
+      ) : (
+        <button
+          className='movies-card__add-button clickable'
+          onClick={() => addCard(card)}
+        >
+          Сохранить
         </button>
       )}
       <img
