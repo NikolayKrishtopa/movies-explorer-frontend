@@ -1,18 +1,40 @@
 import MoviesCardList from '../MoviesCardList/MoviesCardList'
 import SearchForm from '../SearchForm/SearchForm'
+import Footer from '../Footer/Footer'
+import Header from '../Header/Header'
+import { useState } from 'react'
 
 export default function SavedMovies(props) {
-  const { userMovies } = props
+  const { userMovies, isLogged } = props
+  const [isShortMeterChecked, setIsShortMeterChecked] = useState(false)
+  const [submittedSearch, setSubmittedSearch] = useState('')
+  const [searchRequestText, setSearchRequestText] = useState('')
+  const didUserSearch = !!submittedSearch
+  const userMoviesToRender = [...userMovies]
+    .filter((e) => e.nameRU.includes(submittedSearch))
+    .filter((n) => (isShortMeterChecked ? n.duration < 41 : n))
   return (
-    <section className='saved-movies'>
-      <SearchForm />
-      <MoviesCardList
-        cards={userMovies}
-        mode='collection'
-        onAdd={props.onAdd}
-        onRemove={props.onRemove}
-        message='В коллекции пользователя пока нет фильмов'
-      />
-    </section>
+    <>
+      <Header isLogged={isLogged} />
+      <main>
+        <section className='saved-movies'>
+          <SearchForm
+            onSearchSubmit={setSubmittedSearch}
+            isShortMeterChecked={isShortMeterChecked}
+            setIsShortMeterChecked={setIsShortMeterChecked}
+            searchRequestText={searchRequestText}
+            setSearchRequestText={setSearchRequestText}
+          />
+          <MoviesCardList
+            cards={userMoviesToRender}
+            mode='collection'
+            onAdd={props.onAdd}
+            onRemove={props.onRemove}
+            didUserSearch={didUserSearch}
+          />
+        </section>
+      </main>
+      <Footer />
+    </>
   )
 }

@@ -1,0 +1,26 @@
+.loading-popup {
+  padding: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-popup__spinner {
+  width: auto;
+  height: 300px;
+}
+
+.loading-popup__text {
+  color: rgb(100, 202, 168);
+  font-size: 30px;
+  text-transform: uppercase;
+}

@@ -1,20 +1,24 @@
 import { useState } from 'react'
 import getInitialMovies from '../utils/moviesApi'
 
-export default function useMoviesState() {
+export default function useMoviesState(setIsLoading) {
   const [initialMovies, setInitialMovies] = useState([])
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(12)
   const [isShortMeterChecked, setIsShortMeterChecked] = useState(false)
   const [searchRequestText, setSearchRequestText] = useState('')
   const [submittedSearch, setSubmittedSearch] = useState('')
+  const didUserSearch = !!submittedSearch
 
   const getMovies = async () => {
+    setIsLoading(true)
     try {
       const initialMovies = await getInitialMovies()
       setInitialMovies(initialMovies)
     } catch (err) {
       console.log(err)
+    } finally {
+      setIsLoading(false)
     }
   }
   const submitSearch = () => {
@@ -37,5 +41,6 @@ export default function useMoviesState() {
     itemsPerPage,
     setItemsPerPage,
     page,
+    didUserSearch,
   }
 }
