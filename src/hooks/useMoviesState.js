@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import getInitialMovies from '../utils/moviesApi'
 
-export default function useMoviesState(setIsLoading) {
+export default function useMoviesState(setIsLoading, setSystemMessage) {
   const [initialMovies, setInitialMovies] = useState([])
   const [page, setPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(12)
+  const [itemsPerPage, setItemsPerPage] = useState(3)
+  const [initialItemsQty, setInitialItemsQty] = useState(12)
   const [isShortMeterChecked, setIsShortMeterChecked] = useState(false)
   const [searchRequestText, setSearchRequestText] = useState('')
   const [submittedSearch, setSubmittedSearch] = useState('')
@@ -16,7 +17,7 @@ export default function useMoviesState(setIsLoading) {
       const initialMovies = await getInitialMovies()
       setInitialMovies(initialMovies)
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     } finally {
       setIsLoading(false)
     }
@@ -40,6 +41,8 @@ export default function useMoviesState(setIsLoading) {
     setPage,
     itemsPerPage,
     setItemsPerPage,
+    initialItemsQty,
+    setInitialItemsQty,
     page,
     didUserSearch,
   }

@@ -2,7 +2,7 @@ import mainApi from '../utils/mainApi'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function useAuth(setIsLoading) {
+export default function useAuth(setIsLoading, setSystemMessage) {
   const [isLogged, setIsLogged] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
@@ -31,8 +31,9 @@ export default function useAuth(setIsLoading) {
       res.email ? setIsLogged(true) : setIsLogged(false)
       setUser(res)
       navigate('/movies')
+      setSystemMessage('Пользователь успешно вошёл в учетную запись')
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     } finally {
       setIsLoading(false)
     }
@@ -45,7 +46,7 @@ export default function useAuth(setIsLoading) {
         ? submitLogin({ email: userData.email, password: userData.password })
         : setIsLogged(false)
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     } finally {
       setIsLoading(false)
     }
@@ -58,9 +59,10 @@ export default function useAuth(setIsLoading) {
       if (res.message === 'Пользователь успешно вышел из аккаунта') {
         setIsLogged(false)
         navigate('/')
+        // setSystemMessage('Пользователь успешно вышел из учетной записи')
       }
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     } finally {
       setIsLoading(false)
     }
@@ -71,8 +73,9 @@ export default function useAuth(setIsLoading) {
     try {
       const newProfile = await mainApi.updateMyProfile(newUserData)
       setUser(newProfile)
+      // setSystemMessage('Данные пользователя успешно обновлены')
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     } finally {
       setIsLoading(false)
     }

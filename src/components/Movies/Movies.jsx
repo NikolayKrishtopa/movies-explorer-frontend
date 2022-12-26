@@ -17,11 +17,13 @@ export default function Movies(props) {
     setItemsPerPage,
     page,
     didUserSearch,
+    initialItemsQty,
+    setInitialItemsQty,
   } = state
 
   // *** Local state for this component - shown at the moment cards ***
   const shownMovies = [...moviesToShow]
-    .slice(0, itemsPerPage * page)
+    .slice(0, initialItemsQty + itemsPerPage * (page - 1))
     .map((e) => {
       return collection.some((n) => n.movieId === e.id)
         ? {

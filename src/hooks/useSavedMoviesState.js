@@ -2,15 +2,18 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import mainApi from '../utils/mainApi'
 
-export default function useMoviesState() {
+export default function useSavedMoviesState(setIsLoading, setSystemMessage) {
   const [userMovies, setUserMovies] = useState([])
 
   const setSavedMovies = async () => {
+    setIsLoading(true)
     try {
       const movies = await mainApi.getUserMovies()
       setUserMovies(movies)
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -21,7 +24,7 @@ export default function useMoviesState() {
         setUserMovies([...userMovies, res])
       }
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     }
   }
   const removeMovieFromSaved = async (id) => {
@@ -31,7 +34,7 @@ export default function useMoviesState() {
         setUserMovies(userMovies.filter((e) => e._id !== id))
       }
     } catch (err) {
-      console.log(err)
+      setSystemMessage(err)
     }
   }
 

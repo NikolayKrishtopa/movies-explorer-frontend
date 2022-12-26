@@ -1,0 +1,72 @@
+.message-popup {
+  padding: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  cursor: pointer;
+}
+
+.message-popup__container {
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 400px;
+  height: 200px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: auto;
+  position: relative;
+  border-radius: 10px;
+  @media (max-width: 600px) {
+    width: 300px;
+    height: 150px;
+  }
+  @media (max-width: 400px) {
+    width: 250px;
+    height: 150px;
+  }
+}
+
+.message-popup__text {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-size: 20px;
+  background-color: transparent;
+  text-transform: uppercase;
+  text-align: center;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
+}
+
+.message-popup__close-button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  right: -40px;
+  top: -40px;
+  cursor: pointer;
+  pointer-events: none;
+  @media (max-width: 600px) {
+    right: -10px;
+  }
+}
+.message-popup__close-icon {
+  width: 100%;
+}

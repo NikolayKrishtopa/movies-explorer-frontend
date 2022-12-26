@@ -17,10 +17,12 @@
 .loading-popup__spinner {
   width: auto;
   height: 300px;
+  background-color: transparent;
 }
 
 .loading-popup__text {
   color: rgb(100, 202, 168);
   font-size: 30px;
+  background-color: transparent;
   text-transform: uppercase;
 }
