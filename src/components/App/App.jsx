@@ -45,6 +45,19 @@ function App() {
   const { userMovies, addMovieToSaved, removeMovieFromSaved, setSavedMovies } =
     useSavedMoviesState(setIsLoading, setSystemMessage)
 
+  const layoutPagePerWidth = (width) => {
+    if (width < 480) {
+      moviesState.setInitialItemsQty(5)
+      moviesState.setItemsPerPage(1)
+    } else if ((width > 480) & (width < 800)) {
+      moviesState.setInitialItemsQty(8)
+      moviesState.setItemsPerPage(2)
+    } else if (width > 800) {
+      moviesState.setInitialItemsQty(12)
+      moviesState.setItemsPerPage(3)
+    }
+  }
+
   useEffect(() => {
     if (!isLogged) return
     setSavedMovies()
@@ -52,13 +65,17 @@ function App() {
 
   const page = useRef()
 
-  // console.log(page?.current?.offsetWidth)
+  const observer = useRef(
+    new ResizeObserver((entries) => {
+      const { width } = entries[0].contentRect
+      layoutPagePerWidth(width)
+      // console.log(width)
+    })
+  )
 
   useEffect(() => {
-    page.current.addEventListener('click', (e) => {
-      console.log(e.target.offsetWidth)
-    })
-  }, [])
+    observer.current.observe(page.current)
+  }, [page, observer])
 
   return (
     <div className='page' ref={page}>
