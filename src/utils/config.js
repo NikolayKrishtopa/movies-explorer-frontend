@@ -3,8 +3,8 @@ const BASE_URL_ALL_MOVIES = 'https://api.nomoreparties.co/beatfilm-movies'
 
 const MAIN_API_CONFIG = {
   API_DATA: {
-    // BASE_URL: 'https://api.movies.nkrishtopa.nomoredomains.club',
-    BASE_URL: 'http://localhost:3001',
+    BASE_URL: 'https://api.movies.nkrishtopa.nomoredomains.club',
+    // BASE_URL: 'http://localhost:3001',
     HEADERS: {
       'Content-Type': 'application/json',
     },

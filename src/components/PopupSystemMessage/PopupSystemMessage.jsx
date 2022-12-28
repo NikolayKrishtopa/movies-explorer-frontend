@@ -1,7 +1,13 @@
+import { useEffect } from 'react'
 import closeIcon from '../../images/close-icon.svg'
 
 export default function PopupSystemMessage(props) {
   const { message, setSystemMessage } = props
+  useEffect(() => {
+    setTimeout(() => {
+      setSystemMessage('')
+    }, 1000)
+  }, [])
   return (
     <div className='message-popup' onClick={() => setSystemMessage('')}>
       <div

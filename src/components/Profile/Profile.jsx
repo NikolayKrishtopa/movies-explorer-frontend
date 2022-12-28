@@ -60,7 +60,10 @@ export default function Profile(props) {
               </button>
               <button
                 className='profile__nav-button profile__nav-button_type_quit clickable'
-                onClick={onLogout}
+                onClick={(e) => {
+                  e.preventDefault()
+                  onLogout()
+                }}
               >
                 Выйти из аккаунта
               </button>

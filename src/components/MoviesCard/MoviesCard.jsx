@@ -51,11 +51,13 @@ export default function MoviesCard(props) {
           Сохранить
         </button>
       )}
-      <img
-        src={imgUrl}
-        alt='Изображение постера фильма.'
-        className='movies-card__picture'
-      />
+      <a href={card.trailerLink} target='_blank'>
+        <img
+          src={imgUrl}
+          alt='Изображение постера фильма.'
+          className='movies-card__picture'
+        />
+      </a>
       <div className='movies-card__annotation-container'>
         <p className='movies-card__name'>{nameRU}</p>
         <p className='movies-card__duration'>

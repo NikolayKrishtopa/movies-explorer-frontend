@@ -32,6 +32,7 @@ export default function useAuth(setIsLoading, setSystemMessage) {
       setUser(res)
       navigate('/movies')
       setSystemMessage('Пользователь успешно вошёл в учетную запись')
+      navigate('/movies')
     } catch (err) {
       setSystemMessage(err)
     } finally {
@@ -59,7 +60,8 @@ export default function useAuth(setIsLoading, setSystemMessage) {
       if (res.message === 'Пользователь успешно вышел из аккаунта') {
         setIsLogged(false)
         navigate('/')
-        // setSystemMessage('Пользователь успешно вышел из учетной записи')
+        setSystemMessage('Пользователь успешно вышел из учетной записи')
+        localStorage.clear()
       }
     } catch (err) {
       setSystemMessage(err)
@@ -73,7 +75,7 @@ export default function useAuth(setIsLoading, setSystemMessage) {
     try {
       const newProfile = await mainApi.updateMyProfile(newUserData)
       setUser(newProfile)
-      // setSystemMessage('Данные пользователя успешно обновлены')
+      setSystemMessage('Данные пользователя успешно обновлены')
     } catch (err) {
       setSystemMessage(err)
     } finally {
