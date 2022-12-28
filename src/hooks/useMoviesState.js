@@ -41,7 +41,9 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
   }, [localStorage.getItem('search')])
 
   let moviesToShow = initialMovies
-    .filter((e) => e.nameRU.includes(submittedSearch))
+    .filter((e) =>
+      e.nameRU.toLowerCase().includes(submittedSearch.toLowerCase())
+    )
     .filter((n) => (isShortMeterChecked ? n.duration < 41 : n))
   return {
     submitSearch,
