@@ -6,7 +6,9 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
   const [page, setPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(3)
   const [initialItemsQty, setInitialItemsQty] = useState(12)
-  const [isShortMeterChecked, setIsShortMeterChecked] = useState(false)
+  const [isShortMeterChecked, setIsShortMeterChecked] = useState(
+    !!localStorage.getItem('short')
+  )
   const [submittedSearch, setSubmittedSearch] = useState('')
   const [searchRequestText, setSearchRequestText] = useState('')
   const didUserSearch = !!submittedSearch
@@ -43,6 +45,11 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
     setSubmittedSearch(localStorage.getItem('search'))
     setSearchRequestText(localStorage.getItem('search') || '')
   }, [localStorage.getItem('search')])
+  useEffect(() => {
+    isShortMeterChecked
+      ? localStorage.setItem('short', 'true')
+      : localStorage.removeItem('short')
+  }, [isShortMeterChecked])
 
   let moviesToShow = initialMovies
     ?.filter((e) =>
