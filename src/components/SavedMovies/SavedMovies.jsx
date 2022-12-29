@@ -16,7 +16,7 @@ export default function SavedMovies(props) {
   return (
     <>
       <Header isLogged={isLogged} />
-      <main>
+      <main className='main'>
         <section className='saved-movies'>
           <SearchForm
             onSearchSubmit={setSubmittedSearch}

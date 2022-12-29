@@ -14,11 +14,9 @@ export default function Movies(props) {
     moviesToShow,
     itemsPerPage,
     setPage,
-    setItemsPerPage,
     page,
     didUserSearch,
     initialItemsQty,
-    setInitialItemsQty,
   } = state
 
   // *** Local state for this component - shown at the moment cards ***
@@ -36,7 +34,7 @@ export default function Movies(props) {
   return (
     <>
       <Header isLogged={isLogged} />
-      <main>
+      <main className='main'>
         <section className='movies'>
           <SearchForm
             onSearchSubmit={submitSearch}

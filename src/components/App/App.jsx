@@ -24,6 +24,7 @@ import PopupSystemMessage from '../PopupSystemMessage/PopupSystemMessage'
 import { useRef } from 'react'
 
 function App() {
+  console.log('rerendered')
   const [systemMessage, setSystemMessage] = useState('')
 
   const [isLoading, setIsLoading] = useState(false)
@@ -80,12 +81,11 @@ function App() {
   return (
     <div className='page' ref={page}>
       {isLoading && <PopupLoading />}
-      {systemMessage && (
-        <PopupSystemMessage
-          message={systemMessage}
-          setSystemMessage={setSystemMessage}
-        />
-      )}
+
+      <PopupSystemMessage
+        message={systemMessage}
+        setSystemMessage={setSystemMessage}
+      />
       <CurrentUserContext.Provider value={currentUser}>
         <Routes>
           <Route

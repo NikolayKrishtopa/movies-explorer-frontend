@@ -24,7 +24,11 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
   }
   useEffect(() => {
     if (!localStorage.getItem('movies')) return
-    setInitialMovies(JSON.parse(localStorage.getItem('movies')))
+    setInitialMovies(
+      JSON.parse(localStorage.getItem('movies'))
+        ? JSON.parse(localStorage.getItem('movies'))
+        : []
+    )
   }, [localStorage.getItem('movies')])
 
   const submitSearch = () => {
@@ -41,10 +45,10 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
   }, [localStorage.getItem('search')])
 
   let moviesToShow = initialMovies
-    .filter((e) =>
-      e.nameRU.toLowerCase().includes(submittedSearch.toLowerCase())
+    ?.filter((e) =>
+      e?.nameRU.toLowerCase().includes(submittedSearch?.toLowerCase())
     )
-    .filter((n) => (isShortMeterChecked ? n.duration < 41 : n))
+    .filter((n) => (isShortMeterChecked ? n?.duration < 41 : n))
   return {
     submitSearch,
     isShortMeterChecked,

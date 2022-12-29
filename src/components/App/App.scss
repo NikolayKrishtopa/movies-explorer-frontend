@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   background-color: #e5e5e5;
+  height: 100%;
 }
 
 .page {
@@ -18,4 +19,8 @@
   position: relative;
   min-height: 100vh;
   background-color: $content-bg-color_dark;
+}
+
+.main {
+  flex: 1 1 auto;
 }
