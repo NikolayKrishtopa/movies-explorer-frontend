@@ -2,7 +2,8 @@
 
 Ссылка на [макет](https://disk.yandex.ru/d/ETO8bLDJ-DJrsA)
 
-## Комментарии:
+ССылка на [пулл-реквест](https://github.com/NikolayKrishtopa/movies-explorer-frontend/pull/2)
 
-- В компоненте App есть два сетстейта, которые можно менять вручную, чтоб увидеть состояния страницы в зависимости от логина пользователя, а так же ошибку.
-- Страница ошибки 404 также показывается, если на странице Фильмы нажать кнопку "показать еще"
+Ccылка на [фронтенд](https://movies.nikolaykrishtopa.nomoredomains.club/)
+
+Ccылка на [бекенд](http://api.mesto.nikolaykrish.nomoredomains.icu/)
