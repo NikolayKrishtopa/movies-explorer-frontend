@@ -39,6 +39,7 @@ export default function useMoviesState(setIsLoading, setSystemMessage) {
     }
     localStorage.setItem('search', searchRequestText)
     setSubmittedSearch(searchRequestText)
+    setPage(1)
   }
 
   useEffect(() => {

@@ -22,12 +22,12 @@ import Header from '../Header/Header'
 import PopupLoading from '../PopupLoading/PopupLoading'
 import PopupSystemMessage from '../PopupSystemMessage/PopupSystemMessage'
 import { useRef } from 'react'
+import useScreenWidth from '../../hooks/useScreenWidth'
 
 function App() {
-  console.log('rerendered')
   const [systemMessage, setSystemMessage] = useState('')
 
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   // **Хук состояния страницы Фильмы**
   const moviesState = useMoviesState(setIsLoading, setSystemMessage)
@@ -46,107 +46,89 @@ function App() {
   const { userMovies, addMovieToSaved, removeMovieFromSaved, setSavedMovies } =
     useSavedMoviesState(setIsLoading, setSystemMessage)
 
-  const layoutPagePerWidth = (width) => {
-    if (width < 480) {
-      moviesState.setInitialItemsQty(5)
-      moviesState.setItemsPerPage(1)
-    } else if ((width > 480) & (width < 800)) {
-      moviesState.setInitialItemsQty(8)
-      moviesState.setItemsPerPage(2)
-    } else if (width > 800) {
-      moviesState.setInitialItemsQty(12)
-      moviesState.setItemsPerPage(3)
-    }
-  }
-
+  // *** Загрузка фильмов из коллекции пользователя после входа в учетную запись ***
   useEffect(() => {
     if (!isLogged) return
     setSavedMovies()
   }, [isLogged])
 
+  // ***  Отслеживание ширины экрана ***
+
   const page = useRef()
 
-  const observer = useRef(
-    new ResizeObserver((entries) => {
-      const { width } = entries[0].contentRect
-      layoutPagePerWidth(width)
-      // console.log(width)
-    })
-  )
-
-  useEffect(() => {
-    observer.current.observe(page.current)
-  }, [page, observer])
+  useScreenWidth(page, moviesState)
 
   return (
     <div className='page' ref={page}>
-      {isLoading && <PopupLoading />}
-
       <PopupSystemMessage
         message={systemMessage}
         setSystemMessage={setSystemMessage}
       />
-      <CurrentUserContext.Provider value={currentUser}>
-        <Routes>
-          <Route
-            path='/'
-            element={
-              <>
-                <Header isLogged={isLogged} />
-                <main>
-                  <Promo />
-                  <NavTab />
-                  <AboutProject />
-                  <Techs />
-                  <AboutMe />
-                  <Footer />
-                </main>
-              </>
-            }
-          />
-          <Route
-            path='/movies'
-            element={
-              <ProtectedRoute
-                component={Movies}
-                isLogged={isLogged}
-                state={moviesState}
-                onAdd={addMovieToSaved}
-                onRemove={removeMovieFromSaved}
-                collection={userMovies}
-              />
-            }
-          />
-          <Route
-            path='/saved-movies'
-            element={
-              <ProtectedRoute
-                component={SavedMovies}
-                userMovies={userMovies}
-                onRemove={removeMovieFromSaved}
-                isLogged={isLogged}
-              />
-            }
-          />
-          <Route
-            path='/profile'
-            element={
-              <ProtectedRoute
-                component={Profile}
-                isLogged={isLogged}
-                onLogout={handleLogout}
-                onSubmit={submitProfileUpdate}
-              />
-            }
-          />
-          <Route
-            path='/signup'
-            element={<Register onSubmit={submitRegister} />}
-          />
-          <Route path='/signin' element={<Login onSubmit={submitLogin} />} />
-          <Route path='/*' element={<NotFoundError />} />
-        </Routes>
-      </CurrentUserContext.Provider>
+      {isLoading ? (
+        <PopupLoading />
+      ) : (
+        <CurrentUserContext.Provider value={currentUser}>
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <>
+                  <Header isLogged={isLogged} />
+                  <main>
+                    <Promo />
+                    <NavTab />
+                    <AboutProject />
+                    <Techs />
+                    <AboutMe />
+                    <Footer />
+                  </main>
+                </>
+              }
+            />
+            <Route
+              path='/movies'
+              element={
+                <ProtectedRoute
+                  component={Movies}
+                  isLogged={isLogged}
+                  state={moviesState}
+                  onAdd={addMovieToSaved}
+                  onRemove={removeMovieFromSaved}
+                  collection={userMovies}
+                />
+              }
+            />
+            <Route
+              path='/saved-movies'
+              element={
+                <ProtectedRoute
+                  component={SavedMovies}
+                  userMovies={userMovies}
+                  onRemove={removeMovieFromSaved}
+                  isLogged={isLogged}
+                />
+              }
+            />
+            <Route
+              path='/profile'
+              element={
+                <ProtectedRoute
+                  component={Profile}
+                  isLogged={isLogged}
+                  onLogout={handleLogout}
+                  onSubmit={submitProfileUpdate}
+                />
+              }
+            />
+            <Route
+              path='/signup'
+              element={<Register onSubmit={submitRegister} />}
+            />
+            <Route path='/signin' element={<Login onSubmit={submitLogin} />} />
+            <Route path='/*' element={<NotFoundError />} />
+          </Routes>
+        </CurrentUserContext.Provider>
+      )}
     </div>
   )
 }

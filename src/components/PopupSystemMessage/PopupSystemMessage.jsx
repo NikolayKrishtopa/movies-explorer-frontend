@@ -7,7 +7,6 @@ export default function PopupSystemMessage(props) {
     if (!message) return
     const timer = setTimeout(() => {
       setSystemMessage('')
-      console.log('timeout')
     }, 1500)
     return () => {
       clearTimeout(timer)
