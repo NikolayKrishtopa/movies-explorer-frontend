@@ -7,3 +7,5 @@
 Ccылка на [фронтенд](https://movies.nikolaykrishtopa.nomoredomains.club/)
 
 Ccылка на [бекенд](http://api.mesto.nikolaykrish.nomoredomains.icu/)
+
+Публичный IP адрес виртуальной машины - 51.250.85.233
