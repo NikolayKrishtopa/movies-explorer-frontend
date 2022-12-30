@@ -11,7 +11,9 @@ export default function SavedMovies(props) {
   const [searchRequestText, setSearchRequestText] = useState('')
   const didUserSearch = !!submittedSearch
   const userMoviesToRender = [...userMovies]
-    .filter((e) => e.nameRU.includes(submittedSearch))
+    .filter((e) =>
+      e.nameRU.toLowerCase().includes(submittedSearch.toLowerCase())
+    )
     .filter((n) => (isShortMeterChecked ? n.duration < 41 : n))
   return (
     <>
