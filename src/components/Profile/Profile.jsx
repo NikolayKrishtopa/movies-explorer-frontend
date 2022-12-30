@@ -1,13 +1,22 @@
+import { useState } from 'react'
 import { useContext } from 'react'
 import CurrentUserContext from '../../contexts/CurrentUserContext'
 import useFormAndValidation from '../../hooks/useFormAndValidation'
 import Header from '../Header/Header'
 
 export default function Profile(props) {
-  const { onSubmit, userName, userEmail, onLogout, isLogged } = props
+  const { onSubmit, onLogout, isLogged } = props
+  const [matchError, setMatchError] = useState('')
   const currentUser = useContext(CurrentUserContext)
   const { values, handleChange, errors, isValid, resetForm } =
     useFormAndValidation(currentUser)
+  const credentialsMatch =
+    (values.name === currentUser.name) & (values.email === currentUser.email)
+  const submitUpdateProfile = (userData) => {
+    credentialsMatch
+      ? setMatchError('Все поля совпадают с текущими данными пользователя')
+      : onSubmit(userData)
+  }
   return (
     <>
       <Header isLogged={isLogged} />
@@ -43,6 +52,7 @@ export default function Profile(props) {
                   required
                 />
                 <p className='profile__input-error'>{errors.email}</p>
+                <p className='profile__input-error'>{matchError}</p>
               </div>
             </div>
             <div className='profile__nav'>
@@ -52,7 +62,10 @@ export default function Profile(props) {
                 }`}
                 onClick={(e) => {
                   e.preventDefault()
-                  onSubmit({ name: values.name, email: values.email })
+                  submitUpdateProfile({
+                    name: values.name,
+                    email: values.email,
+                  })
                 }}
                 disabled={!isValid}
               >
