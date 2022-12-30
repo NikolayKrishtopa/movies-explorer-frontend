@@ -90,6 +90,7 @@ function App() {
               element={
                 <ProtectedRoute
                   component={Movies}
+                  condition={isLogged}
                   isLogged={isLogged}
                   state={moviesState}
                   onAdd={addMovieToSaved}
@@ -102,10 +103,11 @@ function App() {
               path='/saved-movies'
               element={
                 <ProtectedRoute
+                  isLogged={isLogged}
                   component={SavedMovies}
                   userMovies={userMovies}
                   onRemove={removeMovieFromSaved}
-                  isLogged={isLogged}
+                  condition={isLogged}
                 />
               }
             />
@@ -113,8 +115,9 @@ function App() {
               path='/profile'
               element={
                 <ProtectedRoute
-                  component={Profile}
                   isLogged={isLogged}
+                  component={Profile}
+                  condition={isLogged}
                   onLogout={handleLogout}
                   onSubmit={submitProfileUpdate}
                 />
@@ -122,9 +125,24 @@ function App() {
             />
             <Route
               path='/signup'
-              element={<Register onSubmit={submitRegister} />}
+              element={
+                <ProtectedRoute
+                  condition={!isLogged}
+                  onSubmit={submitRegister}
+                  component={Register}
+                />
+              }
             />
-            <Route path='/signin' element={<Login onSubmit={submitLogin} />} />
+            <Route
+              path='/signin'
+              element={
+                <ProtectedRoute
+                  condition={!isLogged}
+                  onSubmit={submitLogin}
+                  component={Login}
+                />
+              }
+            />
             <Route path='/*' element={<NotFoundError />} />
           </Routes>
         </CurrentUserContext.Provider>
