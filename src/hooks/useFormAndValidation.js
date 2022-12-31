@@ -17,6 +17,7 @@ export default function useFormAndValidation(initialValues = {}) {
       setValues(newValues)
       setErrors(newErrors)
       setIsValid(newIsValid)
+      console.log('reset')
     },
     [setValues, setErrors, setIsValid]
   )

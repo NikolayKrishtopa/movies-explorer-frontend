@@ -3,10 +3,11 @@ import useFormAndValidation from '../../hooks/useFormAndValidation'
 import logo from '../../images/logo.svg'
 
 export default function Login(props) {
-  const { onSubmit } = props
+  const { onSubmit, isFetching } = props
 
   const { values, handleChange, errors, isValid, resetForm } =
     useFormAndValidation()
+
   return (
     <section className='entry-form'>
       <div className='entry-form__container entry-form__container_type_login'>
@@ -31,6 +32,7 @@ export default function Login(props) {
                 placeholder='Введите email'
                 value={values.email ? values.email : ''}
                 onChange={handleChange}
+                disabled={isFetching}
               />
               <p className='entry-form__input-error entry-form__input-error_type_email'>
                 {errors.email}
@@ -51,6 +53,7 @@ export default function Login(props) {
                 placeholder='Введите ваш пароль'
                 value={values.password ? values.password : ''}
                 onChange={handleChange}
+                disabled={isFetching}
               />
               <p className='entry-form__input-error entry-form__input-error_type_password'>
                 {errors.password}
@@ -60,15 +63,16 @@ export default function Login(props) {
           <div className='entry-form__button-container'>
             <button
               className={`entry-form__submit-btn clickable entry-form__submit-btn_type_login ${
-                !isValid && 'entry-form__submit-btn_state_inactive'
+                (!isValid || isFetching) &&
+                'entry-form__submit-btn_state_inactive'
               }`}
-              disabled={!isValid}
+              disabled={!isValid || isFetching}
               onClick={(e) => {
                 e.preventDefault()
                 onSubmit({ email: values.email, password: values.password })
               }}
             >
-              Войти
+              {isFetching ? 'Отправка данных на сервер...' : 'Войти'}
             </button>
             <p className='entry-form__mode-switch'>
               Еще не зарегистрированы?{' '}

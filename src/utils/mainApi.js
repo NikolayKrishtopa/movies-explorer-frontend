@@ -9,6 +9,8 @@ class MainApi {
   _getResponseData = (res, message) => {
     return res.ok
       ? res.json()
+      : res.status === 401
+      ? Promise.reject(`Неверная почта или пароль`)
       : Promise.reject(`ошибка ${res.status} при ${message}`)
   }
 

@@ -3,7 +3,7 @@ import logo from '../../images/logo.svg'
 import useFormAndValidation from '../../hooks/useFormAndValidation'
 
 export default function Register(props) {
-  const { onSubmit } = props
+  const { onSubmit, isFetching } = props
   const { values, handleChange, errors, isValid, resetForm } =
     useFormAndValidation()
   return (
@@ -30,6 +30,7 @@ export default function Register(props) {
                 value={values.name ? values.name : ''}
                 onChange={handleChange}
                 placeholder='Введите имя пользователя'
+                disabled={isFetching}
               />
               <p className='entry-form__input-error entry-form__input-error_type_name'>
                 {errors.name}
@@ -50,6 +51,7 @@ export default function Register(props) {
                 placeholder='Введите email'
                 value={values.email ? values.email : ''}
                 onChange={handleChange}
+                disabled={isFetching}
               />
               <p className='entry-form__input-error entry-form__input-error_type_email'>
                 {errors.email}
@@ -70,6 +72,7 @@ export default function Register(props) {
                 placeholder='Введите ваш пароль'
                 value={values.password ? values.password : ''}
                 onChange={handleChange}
+                disabled={isFetching}
               />
               <p className='entry-form__input-error entry-form__input-error_type_password'>
                 {errors.password}
@@ -79,9 +82,10 @@ export default function Register(props) {
           <div className='entry-form__button-container'>
             <button
               className={`entry-form__submit-btn clickable entry-form__submit-btn_type_login ${
-                !isValid && 'entry-form__submit-btn_state_inactive'
+                (!isValid || isFetching) &&
+                'entry-form__submit-btn_state_inactive'
               }`}
-              disabled={!isValid}
+              disabled={!isValid || isFetching}
               onClick={(e) => {
                 e.preventDefault()
                 onSubmit({
@@ -91,7 +95,9 @@ export default function Register(props) {
                 })
               }}
             >
-              Зарегистрироваться
+              {isFetching
+                ? 'Отправка данных на сервер...'
+                : 'Зарегистрироваться'}
             </button>
             <p className='entry-form__mode-switch'>
               Уже зарегистрированы?{' '}

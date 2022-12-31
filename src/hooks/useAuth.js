@@ -2,7 +2,7 @@ import mainApi from '../utils/mainApi'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function useAuth(setIsLoading, setSystemMessage) {
+export default function useAuth(setIsLoading, isFetching, setSystemMessage) {
   const [isLogged, setIsLogged] = useState(false)
   const [currentUser, setCurrentUser] = useState({})
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ export default function useAuth(setIsLoading, setSystemMessage) {
   }
 
   const submitLogin = async (userData) => {
-    setIsLoading(true)
+    isFetching(true)
     try {
       const res = await mainApi.handleLogin(userData)
       res.email ? setIsLogged(true) : setIsLogged(false)
@@ -36,11 +36,11 @@ export default function useAuth(setIsLoading, setSystemMessage) {
     } catch (err) {
       setSystemMessage(err)
     } finally {
-      setIsLoading(false)
+      isFetching(false)
     }
   }
   const submitRegister = async (userData) => {
-    setIsLoading(true)
+    isFetching(true)
     try {
       const res = await mainApi.handleRegister(userData)
       res.email
@@ -49,7 +49,7 @@ export default function useAuth(setIsLoading, setSystemMessage) {
     } catch (err) {
       setSystemMessage(err)
     } finally {
-      setIsLoading(false)
+      isFetching(false)
     }
   }
 

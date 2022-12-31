@@ -28,6 +28,7 @@ function App() {
   const [systemMessage, setSystemMessage] = useState('')
 
   const [isLoading, setIsLoading] = useState(true)
+  const [isFetching, setIsFetching] = useState(false)
 
   // **Хук состояния страницы Фильмы**
   const moviesState = useMoviesState(setIsLoading, setSystemMessage)
@@ -40,7 +41,7 @@ function App() {
     handleLogout,
     submitRegister,
     submitProfileUpdate,
-  } = useAuth(setIsLoading, setSystemMessage)
+  } = useAuth(setIsLoading, setIsFetching, setSystemMessage)
 
   // **Хук состояния страницы Сохраненные фильмы**
   const { userMovies, addMovieToSaved, removeMovieFromSaved, setSavedMovies } =
@@ -130,6 +131,7 @@ function App() {
                   condition={!isLogged}
                   onSubmit={submitRegister}
                   component={Register}
+                  isFetching={isFetching}
                 />
               }
             />
@@ -140,6 +142,7 @@ function App() {
                   condition={!isLogged}
                   onSubmit={submitLogin}
                   component={Login}
+                  isFetching={isFetching}
                 />
               }
             />
