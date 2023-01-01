@@ -9,16 +9,23 @@ export default function useAuth(setIsLoading, isFetching, setSystemMessage) {
 
   const setUser = (user) => {
     setCurrentUser({ name: user.name, email: user.email })
+    setIsLogged(true)
+  }
+
+  const unsetUser = () => {
+    setIsLogged(false)
+    setCurrentUser({})
+    localStorage.clear()
   }
 
   const checkAuth = async () => {
     setIsLoading(true)
     try {
       const res = await mainApi.getMyProfile()
-      res.email ? setIsLogged(true) : setIsLogged(false)
-      setUser(res)
+      res.email ? setUser(res) : unsetUser()
     } catch (err) {
       console.log(err)
+      unsetUser()
     } finally {
       setIsLoading(false)
     }
@@ -28,8 +35,7 @@ export default function useAuth(setIsLoading, isFetching, setSystemMessage) {
     isFetching(true)
     try {
       const res = await mainApi.handleLogin(userData)
-      res.email ? setIsLogged(true) : setIsLogged(false)
-      setUser(res)
+      res.email ? setUser(res) : unsetUser()
       navigate('/movies')
       setSystemMessage('Пользователь успешно вошёл в учетную запись')
       navigate('/movies')
@@ -45,7 +51,7 @@ export default function useAuth(setIsLoading, isFetching, setSystemMessage) {
       const res = await mainApi.handleRegister(userData)
       res.email
         ? submitLogin({ email: userData.email, password: userData.password })
-        : setIsLogged(false)
+        : unsetUser()
     } catch (err) {
       setSystemMessage(err)
     } finally {
@@ -58,10 +64,9 @@ export default function useAuth(setIsLoading, isFetching, setSystemMessage) {
     try {
       const res = await mainApi.handleLogout()
       if (res.message === 'Пользователь успешно вышел из аккаунта') {
-        setIsLogged(false)
+        unsetUser()
         navigate('/')
         setSystemMessage('Пользователь успешно вышел из учетной записи')
-        localStorage.clear()
       }
     } catch (err) {
       setSystemMessage(err)
