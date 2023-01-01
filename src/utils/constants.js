@@ -15,4 +15,25 @@ const SCREEN_WIDTH = {
   DESKTOP: 800,
 }
 
-export { SHORT_DURATION, SCREEN_WIDTH, INITIAL_MOVIES_QTY, ITEMS_PER_ROW }
+const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
+const FORM_FIELDS_NAMES = {
+  NAME: 'name',
+  EMAIL: 'email',
+  PASSWORD: 'password',
+}
+
+const ALERT_MESSAGES = {
+  INCORRECT_EMAIL_FORMAT: 'Недопустимый формат email',
+}
+
+export {
+  SHORT_DURATION,
+  SCREEN_WIDTH,
+  INITIAL_MOVIES_QTY,
+  ITEMS_PER_ROW,
+  emailRegex,
+  FORM_FIELDS_NAMES,
+  ALERT_MESSAGES,
+}
