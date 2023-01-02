@@ -13,8 +13,8 @@ export default function useScreenWidth(page, moviesState) {
     } else if ((width > SCREEN_WIDTH.TABLET) & (width < SCREEN_WIDTH.DESKTOP)) {
       moviesState.setInitialItemsQty(INITIAL_MOVIES_QTY.TABLET)
       moviesState.setItemsPerPage(ITEMS_PER_ROW.TABLET)
-    } else if (width > 800) {
-      moviesState.setInitialItemsQty(INITIAL_MOVIES_QTY.MOBILE)
+    } else if (width > SCREEN_WIDTH.DESKTOP) {
+      moviesState.setInitialItemsQty(INITIAL_MOVIES_QTY.DESKTOP)
       moviesState.setItemsPerPage(ITEMS_PER_ROW.DESKTOP)
     }
   }
