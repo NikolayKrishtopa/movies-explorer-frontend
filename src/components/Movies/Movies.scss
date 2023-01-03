@@ -1,4 +1,4 @@
-@import "../../commonStylles/commonStyles.scss";
+@import '../../commonStylles/commonStyles.scss';
 
 .movies {
   @extend %section;
@@ -28,4 +28,8 @@
   @media (max-width: 500px) {
     width: 240px;
   }
+}
+
+.movies__extend-button_state_hidden {
+  display: none;
 }

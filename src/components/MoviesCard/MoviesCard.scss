@@ -44,8 +44,16 @@
   width: 100%;
 }
 .movies-card__picture {
+  height: 201px;
+  object-fit: cover;
   border-radius: 6px;
   width: 100%;
+  @media (max-width: 800px) {
+    height: 190px;
+  }
+  @media (max-width: 400px) {
+    height: 168px;
+  }
 }
 .movies-card__annotation-container {
   margin: 0;

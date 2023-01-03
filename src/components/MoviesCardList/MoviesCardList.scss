@@ -2,15 +2,23 @@
   margin: 0;
   padding: 85px 0 0 0;
   display: grid;
-  min-height: 360px;
+  // min-height: 200px;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   grid-template-rows: auto;
   row-gap: 43px;
   column-gap: 30px;
+  flex: 1 1 auto;
   @media (max-width: 800px) {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
   }
-  @media (max-width: 600px) {
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
+}
+.movies-card-list__message {
+  margin: 50px 0 0 0;
+  padding: 0;
+  font-size: 24px;
+  color: #fff;
+  // min-height: 200px;
 }

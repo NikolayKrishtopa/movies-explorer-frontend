@@ -1,13 +1,15 @@
-@import "../../commonStylles/commonStyles.scss";
+@import '../../commonStylles/commonStyles.scss';
 
 .root {
   margin: 0;
   padding: 0;
   background-color: #e5e5e5;
+  height: 100%;
 }
 
 .page {
-  display: block;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 0;
   max-width: 1280px;
@@ -17,4 +19,8 @@
   position: relative;
   min-height: 100vh;
   background-color: $content-bg-color_dark;
+}
+
+.main {
+  flex: 1 1 auto;
 }

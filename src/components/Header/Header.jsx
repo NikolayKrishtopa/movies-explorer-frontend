@@ -1,9 +1,9 @@
-import logo from "../../images/logo.svg"
-import profileIcon from "../../images/profile-icon.svg"
-import burgerIcon from "../../images/burger-menu-icon.svg"
-import { Link } from "react-router-dom"
-import SideBar from "../SideBar/SideBar"
-import { useState } from "react"
+import logo from '../../images/logo.svg'
+import profileIcon from '../../images/profile-icon.svg'
+import burgerIcon from '../../images/burger-menu-icon.svg'
+import { Link, NavLink } from 'react-router-dom'
+import SideBar from '../SideBar/SideBar'
+import { useState } from 'react'
 
 export default function Header(props) {
   const { isLogged } = props
@@ -16,70 +16,70 @@ export default function Header(props) {
     setIsSideBarOpen(false)
   }
   return (
-    <header className="header">
-      <nav className="header__nav">
-        <Link to="/">
+    <header className='header'>
+      <nav className='header__nav'>
+        <Link to='/'>
           <img
             src={logo}
-            alt="Логотип сайта."
-            className="header__logo clickable"
+            alt='Логотип сайта.'
+            className='header__logo clickable'
           />
         </Link>
-        <div className="header__nav-container">
-          <div className="header__buttons header__buttons_left">
-            <Link
-              to="/movies"
+        <div className='header__nav-container'>
+          <div className='header__buttons header__buttons_left'>
+            <NavLink
+              to='/movies'
               className={`header__buttton clickable ${
-                !isLogged && "header__button_hidden clickable"
+                !isLogged && 'header__button_hidden clickable'
               }`}
             >
               Фильмы
-            </Link>
-            <Link
-              to="/saved-movies"
+            </NavLink>
+            <NavLink
+              to='/saved-movies'
               className={`header__buttton clickable ${
-                !isLogged && "header__button_hidden"
+                !isLogged && 'header__button_hidden'
               }`}
             >
               Сохранённые фильмы
-            </Link>
+            </NavLink>
           </div>
-          <div className="header__buttons header__buttons_right">
+          <div className='header__buttons header__buttons_right'>
             {!isLogged ? (
               <>
                 <Link
-                  to="/signup"
-                  className="header__buttton header__buttton_text_small clickable"
+                  to='/signup'
+                  className='header__buttton header__buttton_text_small clickable'
                 >
                   Регистрация
                 </Link>
                 <Link
-                  to="/signin"
-                  className="header__buttton header__buttton_text_small header__buttton_style_green clickable"
+                  to='/signin'
+                  className='header__buttton header__buttton_text_small header__buttton_style_green clickable'
                 >
                   Войти
                 </Link>
               </>
             ) : (
               <>
-                <div className="header__profile-container">
-                  <Link to="/profile" className="header__buttton clickable">
+                <div className='header__profile-container'>
+                  <NavLink to='/profile' className='header__buttton clickable'>
                     Аккаунт
-                  </Link>
+                  </NavLink>
                   <img
-                    className="header__profile-icon"
+                    className='header__profile-icon'
                     src={profileIcon}
-                    alt="иконка кнопки профиля пользователя."
+                    alt='иконка кнопки профиля пользователя.'
                   />
                 </div>
                 <button
-                  className="header__burger-button clickable"
+                  className='header__burger-button clickable'
                   onClick={openSideBar}
                 >
                   <img
                     src={burgerIcon}
-                    alt="Кнопка разворачивания меню."
-                    className="header__burger-icon"
+                    alt='Кнопка разворачивания меню.'
+                    className='header__burger-icon'
                   />
                 </button>
               </>

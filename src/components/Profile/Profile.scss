@@ -1,4 +1,4 @@
-@import "../../commonStylles/commonStyles.scss";
+@import '../../commonStylles/commonStyles.scss';
 .profile {
   @extend %section-modal;
   padding-top: 74px;
@@ -9,7 +9,7 @@
     padding-top: 110px;
   }
 }
-.profile__container {
+.profile__form {
   margin: 0;
   padding: 0;
   min-width: 410px;
@@ -45,6 +45,7 @@
   border-bottom: 1px solid #424242;
   display: flex;
   justify-content: space-between;
+  position: relative;
   &:last-child {
     border: none;
   }
@@ -57,9 +58,12 @@
   line-height: 13px;
   letter-spacing: 0px;
   text-align: left;
+  color: #fff;
 }
-.profile__info-item-text_right {
-  text-align: right;
+.profile__input {
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 .profile__nav {
   margin: 0;
@@ -77,13 +81,27 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  color: #fff;
   @media (max-width: 500px) {
     font-size: 12px;
   }
 }
-.profile__nav-button_type_edit {
-  color: #fff;
+.profile__nav-button_state_disabled {
+  color: rgb(161, 149, 149);
+  pointer-events: none;
 }
 .profile__nav-button_type_quit {
   color: #ee3465;
+}
+.profile__input-error {
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  letter-spacing: 0em;
+  color: #ee3465;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
 }
