@@ -1,37 +1,37 @@
-import AboutMe from '../AboutMe/AboutMe'
-import AboutProject from '../AboutProject/AboutProject'
-import NavTab from '../NavTab/NavTab'
-import Promo from '../Promo/Promo'
-import Techs from '../Techs/Techs'
-import './App.scss'
-import { Route, Routes } from 'react-router-dom'
-import Movies from '../Movies/Movies'
-import SavedMovies from '../SavedMovies/SavedMovies'
-import Profile from '../Profile/Profile'
-import Register from '../EntryForm/Register'
-import Login from '../EntryForm/Login'
-import NotFoundError from '../NotFoundError/NotFoundError'
-import useMoviesState from '../../hooks/useMoviesState'
-import CurrentUserContext from '../../contexts/CurrentUserContext'
-import useAuth from '../../hooks/useAuth'
-import useSavedMoviesState from '../../hooks/useSavedMoviesState'
-import { useState, useEffect } from 'react'
-import ProtectedRoute from '../../hok/ProtectedRoute'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
-import PopupLoading from '../PopupLoading/PopupLoading'
-import PopupSystemMessage from '../PopupSystemMessage/PopupSystemMessage'
-import { useRef } from 'react'
-import useScreenWidth from '../../hooks/useScreenWidth'
+import AboutMe from '../AboutMe/AboutMe';
+import AboutProject from '../AboutProject/AboutProject';
+import NavTab from '../NavTab/NavTab';
+import Promo from '../Promo/Promo';
+import Techs from '../Techs/Techs';
+import './App.scss';
+import { Route, Routes } from 'react-router-dom';
+import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
+import Register from '../EntryForm/Register';
+import Login from '../EntryForm/Login';
+import NotFoundError from '../NotFoundError/NotFoundError';
+import useMoviesState from '../../hooks/useMoviesState';
+import CurrentUserContext from '../../contexts/CurrentUserContext';
+import useAuth from '../../hooks/useAuth';
+import useSavedMoviesState from '../../hooks/useSavedMoviesState';
+import { useState, useEffect } from 'react';
+import ProtectedRoute from '../../hok/ProtectedRoute';
+import Footer from '../Footer/Footer';
+import Header from '../Header/Header';
+import PopupLoading from '../PopupLoading/PopupLoading';
+import PopupSystemMessage from '../PopupSystemMessage/PopupSystemMessage';
+import { useRef } from 'react';
+import useScreenWidth from '../../hooks/useScreenWidth';
 
 function App() {
-  const [systemMessage, setSystemMessage] = useState('')
+  const [systemMessage, setSystemMessage] = useState('');
 
-  const [isLoading, setIsLoading] = useState(true)
-  const [isFetching, setIsFetching] = useState(false)
+  const [isLoading, setIsLoading] = useState(true);
+  const [isFetching, setIsFetching] = useState(false);
 
   // **Хук состояния страницы Фильмы**
-  const moviesState = useMoviesState(setIsLoading, setSystemMessage)
+  const moviesState = useMoviesState(setIsLoading, setSystemMessage);
 
   // **Хук состояния авторизации пользователя**
   const {
@@ -41,23 +41,23 @@ function App() {
     handleLogout,
     submitRegister,
     submitProfileUpdate,
-  } = useAuth(setIsLoading, setIsFetching, setSystemMessage)
+  } = useAuth(setIsLoading, setIsFetching, setSystemMessage);
 
   // **Хук состояния страницы Сохраненные фильмы**
   const { userMovies, addMovieToSaved, removeMovieFromSaved, setSavedMovies } =
-    useSavedMoviesState(setIsLoading, setSystemMessage)
+    useSavedMoviesState(setIsLoading, setSystemMessage);
 
   // *** Загрузка фильмов из коллекции пользователя после входа в учетную запись ***
   useEffect(() => {
-    if (!isLogged) return
-    setSavedMovies()
-  }, [isLogged])
+    if (!isLogged) return;
+    setSavedMovies();
+  }, [isLogged]);
 
   // ***  Отслеживание ширины экрана ***
 
-  const page = useRef()
+  const page = useRef();
 
-  useScreenWidth(page, moviesState)
+  useScreenWidth(page, moviesState);
 
   return (
     <div className='page' ref={page}>
@@ -151,7 +151,7 @@ function App() {
         </CurrentUserContext.Provider>
       )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
